@@ -1,0 +1,4 @@
+02/01/2024
+- Installation de Vivado 2023.2 avec le support des boards ZYBO. 
+- Ajout des boards files contenant la Zybo Z7-20
+03/01/2024
