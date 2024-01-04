@@ -3,3 +3,5 @@
 - Ajout des boards files contenant la Zybo Z7-20
 03/01/2024
 - Creation d'un projet vivado, packaging de l'IP picorv32_axi_0 et création d'un premier bloc design
+04/01/2024
+- Recherches sur l'IP du ZYNQ, comment connecter le picorv32 à la mémoire du processeur
