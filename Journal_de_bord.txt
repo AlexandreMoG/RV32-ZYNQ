@@ -5,3 +5,14 @@
 - Creation d'un projet vivado, packaging de l'IP picorv32_axi_0 et création d'un premier bloc design
 04/01/2024
 - Recherches sur l'IP du ZYNQ, comment connecter le picorv32 à la mémoire du processeur
+11/01/24
+- Réunion de projet
+- Découpe en tache : 
+	- Recherche AXI : Guicheteau
+	- Recherche PCPI, si on désactive : Assier
+	- Recherche Systeme : MORAL 
+- Install Vivado : Guicheteau
+12/01/24 - 13/01/24
+- Modification des PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY
+- Modification des connexions entre l'axi interconnect et rst_ps7_0_50M
+- Implémentation

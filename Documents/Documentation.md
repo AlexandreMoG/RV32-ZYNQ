@@ -12,9 +12,165 @@ Log de ce que j'ai fait :
 3. picorv32_axi en top module  
 4. Je le package en IP, je rajoute un param a clk, FREQ HZ (user Param) et je le package  
 5. Bloc design, j'importe processing_system7_0 et picorv32_axi_0 mon package.
-6. Clic droit processing_system7_0, j'ajoute un slave S_AXI_GP0, je connecte mem_axi de mon picorv32_axi_0 au slave du processing system
+6. Run Auto Connect par vivado, ajout de axi_mem_intercon et rst_ps7_0_50M
+7. Clic droit processing_system7_0, j'ajoute un slave S_AXI_GP0, je connecte mem_axi de mon picorv32_axi_0 au slave du processing system
+8. HDL Wrapper du bloc design et synthese puis implementation
 
-TO DO : 
+
+
+
+## Criticals Warnings et résolutions
+
+### DDR TO CLK DELAY
+
+```tcl
+CRITICAL WARNING: [PSU-1] Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_0 has negative value -0.050 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2] Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_1 has negative value -0.044 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-3] Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.035 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-4] Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.100 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-1] Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_0 has negative value -0.050 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2] Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_1 has negative value -0.044 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-3] Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.035 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-4] Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.100 . PS DDR interfaces might fail when entering negative DQS skew values. 
+```
+
+La connection avec les DDR a été faite automatiquement par Vivado. Hors on obtient les criticals warnings ci dessus.
+
+Pour fixer ce problème, j'ai customizé l'IP ZYNQ7 :  
+DDR Configuration > Training/Board Details > DQS to clock delay  
+
+J'ai mis DQS0-3 à 0.
+
+Il faudra vérifier que cela ne pose pas de problèmes.
+
+Les DDR sont des mémoires vives qui transfèrent des données rapidement, et les DQS sont des signaux d'horloge qui aident à synchroniser la transmission de ces données.
+
+### Reset Source
+```tcl
+
+[BD 41-1347] Reset pin /picorv32_axi_0/resetn (associated clock /picorv32_axi_0/clk) is connected to asynchronous reset source /processing_system7_0/FCLK_RESET0_N.
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_ps7_0_50M/peripheral_aresetn.
+
+[BD 41-1347] Reset pin /axi_mem_intercon/M00_ARESETN (associated clock /axi_mem_intercon/M00_ACLK) is connected to asynchronous reset source /processing_system7_0/FCLK_RESET0_N.
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_ps7_0_50M/peripheral_aresetn.
+
+[BD 41-1347] Reset pin /picorv32_axi_0/resetn (associated clock /picorv32_axi_0/clk) is connected to asynchronous reset source /processing_system7_0/FCLK_RESET0_N.
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_ps7_0_50M/peripheral_aresetn.
+
+[BD 41-1347] Reset pin /axi_mem_intercon/M00_ARESETN (associated clock /axi_mem_intercon/M00_ACLK) is connected to asynchronous reset source /processing_system7_0/FCLK_RESET0_N.
+This may prevent design from meeting timing. Instead it should be connected to reset source /rst_ps7_0_50M/peripheral_aresetn.
+```
+Après que vivado aie rajouté des éléments pour connecter le picorv32 au ZYNQ7 Processing system, les erreurs suivantes apparaissent.
+
+Pour les fixer temporairement, nous allons simplement suivre ce que Vivado nous conseille.
+
+Il faudra vérifier que celà ne pose pas de problème.  
+AVANT :
+* processing_system7_0/FCLK_RESET0_N -> rst_ps7_0_50M/ext_reset_in  
+* processing_system7_0/FCLK_RESET0_N -> picorv32_axi_0/resetn 
+* processing_system7_0/FCLK_RESET0_N -> axi_mem_intercon/M00_ARESETN
+* rst_ps7_0_50M/peripheral_aresetn -> axi_mem_intercon/ARESETN  
+* rst_ps7_0_50M/peripheral_aresetn -> axi_mem_intercon/S00_ARESETN  
+
+
+APRES :  
+* processing_system7_0/FCLK_RESET0_N -> rst_ps7_0_50M/ext_reset_in  
+* rst_ps7_0_50M/peripheral_aresetn -> picorv32_axi_0/resetn  
+* rst_ps7_0_50M/peripheral_aresetn -> axi_mem_intercon/ARESETN  
+* rst_ps7_0_50M/peripheral_aresetn -> axi_mem_intercon/S00_ARESETN  
+* rst_ps7_0_50M/peripheral_aresetn -> axi_mem_intercon/M00_ARESETN  
+
+### PCPI
+
+```tcl
+ [BD 41-759] The input pins (listed below) are either not connected or do not have a source port, and they don't have a tie-off specified. These pins are tied-off to all 0's to avoid error in Implementation flow.
+Please check your design and connect them as needed: 
+/picorv32_axi_0/pcpi_wr
+/picorv32_axi_0/pcpi_rd
+/picorv32_axi_0/pcpi_wait
+/picorv32_axi_0/pcpi_ready
+/picorv32_axi_0/irq
+```
+
+A faire @ASSIER
+
+## Implémentation résultats
+
+### Implementation 1 du 13/01
+
+```
+1. Slice Logic
+--------------
+
++----------------------------+------+-------+------------+-----------+-------+
+|          Site Type         | Used | Fixed | Prohibited | Available | Util% |
++----------------------------+------+-------+------------+-----------+-------+
+| Slice LUTs                 |  927 |     0 |          0 |     53200 |  1.74 |
+|   LUT as Logic             |  882 |     0 |          0 |     53200 |  1.66 |
+|   LUT as Memory            |   45 |     0 |          0 |     17400 |  0.26 |
+|     LUT as Distributed RAM |   44 |     0 |            |           |       |
+|     LUT as Shift Register  |    1 |     0 |            |           |       |
+| Slice Registers            |  612 |     0 |          0 |    106400 |  0.58 |
+|   Register as Flip Flop    |  612 |     0 |          0 |    106400 |  0.58 |
+|   Register as Latch        |    0 |     0 |          0 |    106400 |  0.00 |
+| F7 Muxes                   |    0 |     0 |          0 |     26600 |  0.00 |
+| F8 Muxes                   |    0 |     0 |          0 |     13300 |  0.00 |
++----------------------------+------+-------+------------+-----------+-------+
+1.1 Summary of Registers by Type
+--------------------------------
+
++-------+--------------+-------------+--------------+
+| Total | Clock Enable | Synchronous | Asynchronous |
++-------+--------------+-------------+--------------+
+| 0     |            _ |           - |            - |
+| 0     |            _ |           - |          Set |
+| 0     |            _ |           - |        Reset |
+| 0     |            _ |         Set |            - |
+| 0     |            _ |       Reset |            - |
+| 0     |          Yes |           - |            - |
+| 0     |          Yes |           - |          Set |
+| 0     |          Yes |           - |        Reset |
+| 15    |          Yes |         Set |            - |
+| 597   |          Yes |       Reset |            - |
++-------+--------------+-------------+--------------+
+
+3. Memory
+---------
+
++----------------+------+-------+------------+-----------+-------+
+|    Site Type   | Used | Fixed | Prohibited | Available | Util% |
++----------------+------+-------+------------+-----------+-------+
+| Block RAM Tile |    0 |     0 |          0 |       140 |  0.00 |
+|   RAMB36/FIFO* |    0 |     0 |          0 |       140 |  0.00 |
+|   RAMB18       |    0 |     0 |          0 |       280 |  0.00 |
++----------------+------+-------+------------+-----------+-------+
+5. IO and GT Specific
+---------------------
+
++-----------------------------+------+-------+------------+-----------+--------+
+|          Site Type          | Used | Fixed | Prohibited | Available |  Util% |
++-----------------------------+------+-------+------------+-----------+--------+
+| Bonded IOB                  |    0 |     0 |          0 |       125 |   0.00 |
+| Bonded IPADs                |    0 |     0 |          0 |         2 |   0.00 |
+| Bonded IOPADs               |  130 |   130 |          0 |       130 | 100.00 |
+| PHY_CONTROL                 |    0 |     0 |          0 |         4 |   0.00 |
+| PHASER_REF                  |    0 |     0 |          0 |         4 |   0.00 |
+| OUT_FIFO                    |    0 |     0 |          0 |        16 |   0.00 |
+| IN_FIFO                     |    0 |     0 |          0 |        16 |   0.00 |
+| IDELAYCTRL                  |    0 |     0 |          0 |         4 |   0.00 |
+| IBUFDS                      |    0 |     0 |          0 |       121 |   0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |          0 |        16 |   0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |          0 |        16 |   0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |          0 |       200 |   0.00 |
+| ILOGIC                      |    0 |     0 |          0 |       125 |   0.00 |
+| OLOGIC                      |    0 |     0 |          0 |       125 |   0.00 |
++-----------------------------+------+-------+------------+-----------+--------+
+```
+
+Validation : Le picorv32 convient amplement en taille a notre carte, comme prévu
+
+
+## TO DO : 
 * Définir axi  master / slave : expliquer ce que c'est axi, expliquer ahb du coeur, regarder ça plus en détail (utiliser cours de M.THIEBOLT + internet)
 * Résoudre les criticals warning du bloc design ([PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_0 has negative value -0.050 . PS DDR interfaces might fail when entering negative DQS skew values. 
 )

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xCC6CFA53F622E079",
+      "boundary_crc": "0xCC6CFA53B4580162",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../project_1.gen/sources_1/bd/processor_design",
       "name": "processor_design",
@@ -211,7 +211,7 @@
             "value": "125.000000"
           },
           "PCW_ACT_ENET1_PERIPHERAL_FREQMHZ": {
-            "value": "10.000000"
+            "value": "125.000000"
           },
           "PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ": {
             "value": "50.000000"
@@ -328,7 +328,7 @@
             "value": "0"
           },
           "PCW_ENET1_PERIPHERAL_CLKSRC": {
-            "value": "IO PLL"
+            "value": "External"
           },
           "PCW_ENET1_PERIPHERAL_ENABLE": {
             "value": "0"
@@ -345,8 +345,14 @@
           "PCW_EN_4K_TIMER": {
             "value": "0"
           },
+          "PCW_EN_EMIO_ENET1": {
+            "value": "0"
+          },
           "PCW_EN_ENET0": {
             "value": "1"
+          },
+          "PCW_EN_ENET1": {
+            "value": "0"
           },
           "PCW_EN_GPIO": {
             "value": "1"
@@ -1096,16 +1102,16 @@
             "value": "160"
           },
           "PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_0": {
-            "value": "-0.050"
+            "value": "0"
           },
           "PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_1": {
-            "value": "-0.044"
+            "value": "0"
           },
           "PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2": {
-            "value": "-0.035"
+            "value": "0"
           },
           "PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3": {
-            "value": "-0.100"
+            "value": "0"
           },
           "PCW_UIPARAM_DDR_DQ_0_LENGTH_MM": {
             "value": "22.8"
@@ -1505,16 +1511,16 @@
       "processing_system7_0_FCLK_RESET0_N": {
         "ports": [
           "processing_system7_0/FCLK_RESET0_N",
-          "picorv32_axi_0/resetn",
-          "rst_ps7_0_50M/ext_reset_in",
-          "axi_mem_intercon/M00_ARESETN"
+          "rst_ps7_0_50M/ext_reset_in"
         ]
       },
       "rst_ps7_0_50M_peripheral_aresetn": {
         "ports": [
           "rst_ps7_0_50M/peripheral_aresetn",
           "axi_mem_intercon/S00_ARESETN",
-          "axi_mem_intercon/ARESETN"
+          "axi_mem_intercon/ARESETN",
+          "picorv32_axi_0/resetn",
+          "axi_mem_intercon/M00_ARESETN"
         ]
       }
     },
