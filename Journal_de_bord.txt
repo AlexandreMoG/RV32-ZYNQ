@@ -1,18 +1,22 @@
 02/01/2024
-- Installation de Vivado 2023.2 avec le support des boards ZYBO. 
-- Ajout des boards files contenant la Zybo Z7-20
+- Installation de Vivado 2023.2 avec le support des boards ZYBO. : MORAL
+- Ajout des boards files contenant la Zybo Z7-20 : MORAL
 03/01/2024
-- Creation d'un projet vivado, packaging de l'IP picorv32_axi_0 et création d'un premier bloc design
+- Creation d'un projet vivado, packaging de l'IP picorv32_axi_0 et création d'un premier bloc design : MORAL
 04/01/2024
-- Recherches sur l'IP du ZYNQ, comment connecter le picorv32 à la mémoire du processeur
+- Recherches sur l'IP du ZYNQ, comment connecter le picorv32 à la mémoire du processeur : MORAL
 11/01/24
-- Réunion de projet
+- Réunion de projet : ALL
 - Découpe en tache : 
 	- Recherche AXI : Guicheteau
 	- Recherche PCPI, si on désactive : Assier
 	- Recherche Systeme : MORAL 
-- Install Vivado : Guicheteau
+- Install Vivado : GUICHETEAU 
 12/01/24 - 13/01/24
-- Modification des PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY
-- Modification des connexions entre l'axi interconnect et rst_ps7_0_50M
-- Implémentation
+- Modification des PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY : MORAL
+- Modification des connexions entre l'axi interconnect et rst_ps7_0_50M : MORAL
+- Implémentation : MORAL
+15/01/24
+- Installation de Vivado terminée et fetch du projet : GUICHETEAU 
+16/01/24
+- Recherches sur le PCPI et documentation : ASSIER 
