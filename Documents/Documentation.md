@@ -17,6 +17,10 @@ Log de ce que j'ai fait :
 8. HDL Wrapper du bloc design et synthese puis implementation
 
 
+## ILA
+
+Ajout d'un Integrated Logic Analyzer (ILA) :
+
 
 
 ## Criticals Warnings et résolutions
@@ -121,7 +125,7 @@ Un cœur externe PCPI peut alors décoder l'instruction, l'exécuter, et activer
 Si aucun cœur externe PCPI n'accepte l'instruction dans les 16 cycles d'horloge, une exception d'instruction illégale est déclenchée, et le gestionnaire d'interruption respectif est appelé. Un cœur PCPI qui a besoin de plus que quelques cycles pour exécuter une instruction devrait activer pcpi_wait dès que l'instruction a été décodée avec succès et le maintenir activé jusqu'à ce qu'il active pcpi_ready. Cela empêchera le cœur PicoRV32 de générer une exception d'instruction illégale.
 
 
-Les PCPI du picoRV32 sont une fonctionnalité utiliser pour mesurer et de surveiller les performances d'un processeur. 
+Les PCPI du picoRV32 sont une fonctionnalitée utilisé pour mesurer et de surveiller les performances d'un processeur. 
 
 Nous en aurons besoin à la fin si on veux comparer les performances de notre coeur avec un autre coeur risc-V.
 Donc on peut désactiver les ports PCPI, ils ne seront pas utiles dans un premier temps à l'implémentationdu picoRV32.

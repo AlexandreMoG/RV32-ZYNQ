@@ -20,3 +20,5 @@
 - Installation de Vivado terminée et fetch du projet : GUICHETEAU 
 16/01/24
 - Recherches sur le PCPI et documentation : ASSIER 
+- Recherche mémoire pour mettre code et tester : ASSIER - MORAL
+- Ajout d'un ILA : MORAL
