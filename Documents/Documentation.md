@@ -92,7 +92,41 @@ Please check your design and connect them as needed:
 /picorv32_axi_0/irq
 ```
 
-A faire @ASSIER
+L'interface du coprocesseur (Co-Processor Interface ou CPI) est généralement utilisée dans le contexte des processeurs pour permettre la connexion et la communication avec des coprocesseurs ou des extensions matérielles qui peuvent fournir des fonctionnalités supplémentaires ou spécialisées. Cela permet d'ajouter des capacités personnalisées ou optimisées matériellement au processeur de base.
+
+L'interface du Coprocesseur Pico (PCPI) peut être utilisée pour mettre en œuvre des instructions sans branchement dans des cœurs externes :
+
+
+    output        pcpi_valid
+    output [31:0] pcpi_insn
+    output [31:0] pcpi_rs1
+    output [31:0] pcpi_rs2
+    input         pcpi_wr
+    input  [31:0] pcpi_rd
+    input         pcpi_wait
+    input         pcpi_ready
+
+    output pcpi_valid: Lorsqu'une instruction non prise en charge est rencontrée et que la fonctionnalité PCPI est activée (voir ENABLE_PCPI ci-dessus), pcpi_valid est activé. L'instruction elle-même est sortie sur pcpi_insn, les champs rs1 et rs2 sont décodés et les valeurs dans ces registres sont sorties sur pcpi_rs1 et pcpi_rs2.
+
+    input pcpi_wr: Indique si l'écriture est autorisée.
+
+    input [31:0] pcpi_rd: Indique le registre de destination pour le résultat de l'instruction.
+
+    input pcpi_wait: Indique que le cœur externe PCPI a besoin de plus de temps pour exécuter l'instruction.
+
+    input pcpi_ready: Indiqué par le cœur externe PCPI lorsqu'il a terminé l'exécution de l'instruction.
+
+Un cœur externe PCPI peut alors décoder l'instruction, l'exécuter, et activer pcpi_ready lorsque l'exécution de l'instruction est terminée. En option, une valeur de résultat peut être écrite sur pcpi_rd et pcpi_wr est activé. Le cœur PicoRV32 décodera alors le champ rd de l'instruction et écrira la valeur de pcpi_rd dans le registre correspondant.
+
+Si aucun cœur externe PCPI n'accepte l'instruction dans les 16 cycles d'horloge, une exception d'instruction illégale est déclenchée, et le gestionnaire d'interruption respectif est appelé. Un cœur PCPI qui a besoin de plus que quelques cycles pour exécuter une instruction devrait activer pcpi_wait dès que l'instruction a été décodée avec succès et le maintenir activé jusqu'à ce qu'il active pcpi_ready. Cela empêchera le cœur PicoRV32 de générer une exception d'instruction illégale.
+
+
+Les PCPI du picoRV32 sont une fonctionnalité utiliser pour mesurer et de surveiller les performances d'un processeur. 
+
+Nous en aurons besoin à la fin si on veux comparer les performances de notre coeur avec un autre coeur risc-V.
+Donc on peut désactiver les ports PCPI, ils ne seront pas utiles dans un premier temps à l'implémentationdu picoRV32.
+
+On peut également les utiliser pour nos test de validation.Pour tester différents scénarios ou pour faire du débug.
 
 ## Implémentation résultats
 
