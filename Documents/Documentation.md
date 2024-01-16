@@ -123,8 +123,7 @@ Si aucun cœur externe PCPI n'accepte l'instruction dans les 16 cycles d'horloge
 
 Les PCPI du picoRV32 sont une fonctionnalité utiliser pour mesurer et de surveiller les performances d'un processeur. 
 
-Nous en aurons besoin à la fin si on veux comparer les performances de notre coeur avec un autre coeur risc-V.
-Donc on peut désactiver les ports PCPI, ils ne seront pas utiles dans un premier temps à l'implémentationdu picoRV32.
+Donc on peut désactiver les ports PCPI, ils ne seront pas utiles à notre implémentationdu picoRV32 sans extension.
 
 On peut également les utiliser pour nos test de validation.Pour tester différents scénarios ou pour faire du débug.
 
