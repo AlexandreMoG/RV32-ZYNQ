@@ -22,3 +22,10 @@
 - Recherches sur le PCPI et documentation : ASSIER 
 - Recherche mémoire pour mettre code et tester : ASSIER - MORAL
 - Ajout d'un ILA : MORAL
+17/01/24
+- Reunion
+- Depart documentation toolchain et préparation d'un code qui utilise la mémoire : ASSIER
+- Recherches comment interfacer le processeur le processeur et ajouter du code compilé : GUICHETEAU
+- Recherches Comment on crée un espace d'adressage pour le processeur : dire qu'a l'adresse 0 c'est une bootrom,a ladresse 3M c'est autre chose... etc ? : GUICHETEAU
+18/01/24
+- MaJ du design vivado pour utiliser les ports AXI S HP pour interfacer la mémoire : MORAL

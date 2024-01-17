@@ -157,11 +157,11 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_awready->in_port(m_axi_awready);
   mp_m_axi_split_awready->out_port[0](m_axi_split_awready_out_0);
     mp_m_axi_split_awready->add_mask(0,1,0);
-  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<64, 2>("m_axi_concat_wdata");
+  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<128, 2>("m_axi_concat_wdata");
   mp_m_axi_concat_wdata->in_port[0](m_axi_concat_wdata_out_0);
   mp_m_axi_concat_wdata->out_port(m_axi_wdata);
     mp_m_axi_concat_wdata->offset_port(0, 0);
-  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<8, 2>("m_axi_concat_wstrb");
+  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<16, 2>("m_axi_concat_wstrb");
   mp_m_axi_concat_wstrb->in_port[0](m_axi_concat_wstrb_out_0);
   mp_m_axi_concat_wstrb->out_port(m_axi_wstrb);
     mp_m_axi_concat_wstrb->offset_port(0, 0);
@@ -201,10 +201,10 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_arready->in_port(m_axi_arready);
   mp_m_axi_split_arready->out_port[0](m_axi_split_arready_out_0);
     mp_m_axi_split_arready->add_mask(0,1,0);
-  mp_m_axi_split_rdata = new xsc::xsc_split<64, 2>("m_axi_split_rdata");
+  mp_m_axi_split_rdata = new xsc::xsc_split<128, 2>("m_axi_split_rdata");
   mp_m_axi_split_rdata->in_port(m_axi_rdata);
   mp_m_axi_split_rdata->out_port[0](m_axi_split_rdata_out_0);
-    mp_m_axi_split_rdata->add_mask(0,32,0);
+    mp_m_axi_split_rdata->add_mask(0,64,0);
   mp_m_axi_split_rresp = new xsc::xsc_split<4, 2>("m_axi_split_rresp");
   mp_m_axi_split_rresp->in_port(m_axi_rresp);
   mp_m_axi_split_rresp->out_port[0](m_axi_split_rresp_out_0);
@@ -227,9 +227,9 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_awready->out_port[1](m_axi_split_awready_out_1);
     mp_m_axi_split_awready->add_mask(1,2,1);
   mp_m_axi_concat_wdata->in_port[1](m_axi_concat_wdata_out_1);
-  mp_m_axi_concat_wdata->offset_port(1, 32);
+  mp_m_axi_concat_wdata->offset_port(1, 64);
   mp_m_axi_concat_wstrb->in_port[1](m_axi_concat_wstrb_out_1);
-  mp_m_axi_concat_wstrb->offset_port(1, 4);
+  mp_m_axi_concat_wstrb->offset_port(1, 8);
   mp_m_axi_concat_wvalid->in_port[1](m_axi_concat_wvalid_out_1);
   mp_m_axi_concat_wvalid->offset_port(1, 1);
   
@@ -254,7 +254,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     mp_m_axi_split_arready->add_mask(1,2,1);
   
   mp_m_axi_split_rdata->out_port[1](m_axi_split_rdata_out_1);
-    mp_m_axi_split_rdata->add_mask(1,64,32);
+    mp_m_axi_split_rdata->add_mask(1,128,64);
   
   mp_m_axi_split_rresp->out_port[1](m_axi_split_rresp_out_1);
     mp_m_axi_split_rresp->add_mask(1,4,2);
@@ -278,7 +278,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'S00_AXI' transactor parameters
     xsc::common_cpp::properties S00_AXI_transactor_param_props;
-    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     S00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     S00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -311,7 +311,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     S00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
+    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
 
     // S00_AXI' transactor ports
 
@@ -384,7 +384,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'M00_AXI' transactor parameters
     xsc::common_cpp::properties M00_AXI_transactor_param_props;
-    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -417,7 +417,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     M00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
+    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
 
     // M00_AXI' transactor ports
 
@@ -437,11 +437,11 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_awready_converter_0->vector_in(m_axi_split_awready_out_0);
     mp_m_axi_awready_converter_0->scalar_out(m_m_axi_awready_converter_0_signal);
     mp_M00_AXI_transactor->AWREADY(m_m_axi_awready_converter_0_signal);
-    mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_0");
+    mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_0");
     mp_m_axi_wdata_converter_0->vector_in(m_m_axi_wdata_converter_0_signal);
     mp_m_axi_wdata_converter_0->vector_out(m_axi_concat_wdata_out_0);
     mp_M00_AXI_transactor->WDATA(m_m_axi_wdata_converter_0_signal);
-    mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_0");
+    mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_0");
     mp_m_axi_wstrb_converter_0->vector_in(m_m_axi_wstrb_converter_0_signal);
     mp_m_axi_wstrb_converter_0->vector_out(m_axi_concat_wstrb_out_0);
     mp_M00_AXI_transactor->WSTRB(m_m_axi_wstrb_converter_0_signal);
@@ -481,7 +481,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_arready_converter_0->vector_in(m_axi_split_arready_out_0);
     mp_m_axi_arready_converter_0->scalar_out(m_m_axi_arready_converter_0_signal);
     mp_M00_AXI_transactor->ARREADY(m_m_axi_arready_converter_0_signal);
-    mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_0");
+    mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_0");
     mp_m_axi_rdata_converter_0->vector_in(m_axi_split_rdata_out_0);
     mp_m_axi_rdata_converter_0->vector_out(m_m_axi_rdata_converter_0_signal);
     mp_M00_AXI_transactor->RDATA(m_m_axi_rdata_converter_0_signal);
@@ -517,7 +517,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'M01_AXI' transactor parameters
     xsc::common_cpp::properties M01_AXI_transactor_param_props;
-    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M01_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M01_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M01_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -550,7 +550,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     M01_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M01_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
+    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
 
     // M01_AXI' transactor ports
 
@@ -570,11 +570,11 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_awready_converter_1->vector_in(m_axi_split_awready_out_1);
     mp_m_axi_awready_converter_1->scalar_out(m_m_axi_awready_converter_1_signal);
     mp_M01_AXI_transactor->AWREADY(m_m_axi_awready_converter_1_signal);
-    mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_1");
+    mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_1");
     mp_m_axi_wdata_converter_1->vector_in(m_m_axi_wdata_converter_1_signal);
     mp_m_axi_wdata_converter_1->vector_out(m_axi_concat_wdata_out_1);
     mp_M01_AXI_transactor->WDATA(m_m_axi_wdata_converter_1_signal);
-    mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_1");
+    mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_1");
     mp_m_axi_wstrb_converter_1->vector_in(m_m_axi_wstrb_converter_1_signal);
     mp_m_axi_wstrb_converter_1->vector_out(m_axi_concat_wstrb_out_1);
     mp_M01_AXI_transactor->WSTRB(m_m_axi_wstrb_converter_1_signal);
@@ -614,7 +614,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_arready_converter_1->vector_in(m_axi_split_arready_out_1);
     mp_m_axi_arready_converter_1->scalar_out(m_m_axi_arready_converter_1_signal);
     mp_M01_AXI_transactor->ARREADY(m_m_axi_arready_converter_1_signal);
-    mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_1");
+    mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_1");
     mp_m_axi_rdata_converter_1->vector_in(m_axi_split_rdata_out_1);
     mp_m_axi_rdata_converter_1->vector_out(m_m_axi_rdata_converter_1_signal);
     mp_M01_AXI_transactor->RDATA(m_m_axi_rdata_converter_1_signal);
@@ -746,11 +746,11 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_awready->in_port(m_axi_awready);
   mp_m_axi_split_awready->out_port[0](m_axi_split_awready_out_0);
     mp_m_axi_split_awready->add_mask(0,1,0);
-  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<64, 2>("m_axi_concat_wdata");
+  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<128, 2>("m_axi_concat_wdata");
   mp_m_axi_concat_wdata->in_port[0](m_axi_concat_wdata_out_0);
   mp_m_axi_concat_wdata->out_port(m_axi_wdata);
     mp_m_axi_concat_wdata->offset_port(0, 0);
-  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<8, 2>("m_axi_concat_wstrb");
+  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<16, 2>("m_axi_concat_wstrb");
   mp_m_axi_concat_wstrb->in_port[0](m_axi_concat_wstrb_out_0);
   mp_m_axi_concat_wstrb->out_port(m_axi_wstrb);
     mp_m_axi_concat_wstrb->offset_port(0, 0);
@@ -790,10 +790,10 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_arready->in_port(m_axi_arready);
   mp_m_axi_split_arready->out_port[0](m_axi_split_arready_out_0);
     mp_m_axi_split_arready->add_mask(0,1,0);
-  mp_m_axi_split_rdata = new xsc::xsc_split<64, 2>("m_axi_split_rdata");
+  mp_m_axi_split_rdata = new xsc::xsc_split<128, 2>("m_axi_split_rdata");
   mp_m_axi_split_rdata->in_port(m_axi_rdata);
   mp_m_axi_split_rdata->out_port[0](m_axi_split_rdata_out_0);
-    mp_m_axi_split_rdata->add_mask(0,32,0);
+    mp_m_axi_split_rdata->add_mask(0,64,0);
   mp_m_axi_split_rresp = new xsc::xsc_split<4, 2>("m_axi_split_rresp");
   mp_m_axi_split_rresp->in_port(m_axi_rresp);
   mp_m_axi_split_rresp->out_port[0](m_axi_split_rresp_out_0);
@@ -816,9 +816,9 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_awready->out_port[1](m_axi_split_awready_out_1);
     mp_m_axi_split_awready->add_mask(1,2,1);
   mp_m_axi_concat_wdata->in_port[1](m_axi_concat_wdata_out_1);
-  mp_m_axi_concat_wdata->offset_port(1, 32);
+  mp_m_axi_concat_wdata->offset_port(1, 64);
   mp_m_axi_concat_wstrb->in_port[1](m_axi_concat_wstrb_out_1);
-  mp_m_axi_concat_wstrb->offset_port(1, 4);
+  mp_m_axi_concat_wstrb->offset_port(1, 8);
   mp_m_axi_concat_wvalid->in_port[1](m_axi_concat_wvalid_out_1);
   mp_m_axi_concat_wvalid->offset_port(1, 1);
   
@@ -843,7 +843,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     mp_m_axi_split_arready->add_mask(1,2,1);
   
   mp_m_axi_split_rdata->out_port[1](m_axi_split_rdata_out_1);
-    mp_m_axi_split_rdata->add_mask(1,64,32);
+    mp_m_axi_split_rdata->add_mask(1,128,64);
   
   mp_m_axi_split_rresp->out_port[1](m_axi_split_rresp_out_1);
     mp_m_axi_split_rresp->add_mask(1,4,2);
@@ -867,7 +867,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'S00_AXI' transactor parameters
     xsc::common_cpp::properties S00_AXI_transactor_param_props;
-    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     S00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     S00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -900,7 +900,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     S00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
+    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
 
     // S00_AXI' transactor ports
 
@@ -973,7 +973,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'M00_AXI' transactor parameters
     xsc::common_cpp::properties M00_AXI_transactor_param_props;
-    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -1006,7 +1006,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     M00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
+    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
 
     // M00_AXI' transactor ports
 
@@ -1026,11 +1026,11 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_awready_converter_0->vector_in(m_axi_split_awready_out_0);
     mp_m_axi_awready_converter_0->scalar_out(m_m_axi_awready_converter_0_signal);
     mp_M00_AXI_transactor->AWREADY(m_m_axi_awready_converter_0_signal);
-    mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_0");
+    mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_0");
     mp_m_axi_wdata_converter_0->vector_in(m_m_axi_wdata_converter_0_signal);
     mp_m_axi_wdata_converter_0->vector_out(m_axi_concat_wdata_out_0);
     mp_M00_AXI_transactor->WDATA(m_m_axi_wdata_converter_0_signal);
-    mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_0");
+    mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_0");
     mp_m_axi_wstrb_converter_0->vector_in(m_m_axi_wstrb_converter_0_signal);
     mp_m_axi_wstrb_converter_0->vector_out(m_axi_concat_wstrb_out_0);
     mp_M00_AXI_transactor->WSTRB(m_m_axi_wstrb_converter_0_signal);
@@ -1070,7 +1070,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_arready_converter_0->vector_in(m_axi_split_arready_out_0);
     mp_m_axi_arready_converter_0->scalar_out(m_m_axi_arready_converter_0_signal);
     mp_M00_AXI_transactor->ARREADY(m_m_axi_arready_converter_0_signal);
-    mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_0");
+    mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_0");
     mp_m_axi_rdata_converter_0->vector_in(m_axi_split_rdata_out_0);
     mp_m_axi_rdata_converter_0->vector_out(m_m_axi_rdata_converter_0_signal);
     mp_M00_AXI_transactor->RDATA(m_m_axi_rdata_converter_0_signal);
@@ -1106,7 +1106,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'M01_AXI' transactor parameters
     xsc::common_cpp::properties M01_AXI_transactor_param_props;
-    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M01_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M01_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M01_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -1139,7 +1139,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     M01_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M01_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
+    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
 
     // M01_AXI' transactor ports
 
@@ -1159,11 +1159,11 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_awready_converter_1->vector_in(m_axi_split_awready_out_1);
     mp_m_axi_awready_converter_1->scalar_out(m_m_axi_awready_converter_1_signal);
     mp_M01_AXI_transactor->AWREADY(m_m_axi_awready_converter_1_signal);
-    mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_1");
+    mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_1");
     mp_m_axi_wdata_converter_1->vector_in(m_m_axi_wdata_converter_1_signal);
     mp_m_axi_wdata_converter_1->vector_out(m_axi_concat_wdata_out_1);
     mp_M01_AXI_transactor->WDATA(m_m_axi_wdata_converter_1_signal);
-    mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_1");
+    mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_1");
     mp_m_axi_wstrb_converter_1->vector_in(m_m_axi_wstrb_converter_1_signal);
     mp_m_axi_wstrb_converter_1->vector_out(m_axi_concat_wstrb_out_1);
     mp_M01_AXI_transactor->WSTRB(m_m_axi_wstrb_converter_1_signal);
@@ -1203,7 +1203,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_arready_converter_1->vector_in(m_axi_split_arready_out_1);
     mp_m_axi_arready_converter_1->scalar_out(m_m_axi_arready_converter_1_signal);
     mp_M01_AXI_transactor->ARREADY(m_m_axi_arready_converter_1_signal);
-    mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_1");
+    mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_1");
     mp_m_axi_rdata_converter_1->vector_in(m_axi_split_rdata_out_1);
     mp_m_axi_rdata_converter_1->vector_out(m_m_axi_rdata_converter_1_signal);
     mp_M01_AXI_transactor->RDATA(m_m_axi_rdata_converter_1_signal);
@@ -1335,11 +1335,11 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_awready->in_port(m_axi_awready);
   mp_m_axi_split_awready->out_port[0](m_axi_split_awready_out_0);
     mp_m_axi_split_awready->add_mask(0,1,0);
-  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<64, 2>("m_axi_concat_wdata");
+  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<128, 2>("m_axi_concat_wdata");
   mp_m_axi_concat_wdata->in_port[0](m_axi_concat_wdata_out_0);
   mp_m_axi_concat_wdata->out_port(m_axi_wdata);
     mp_m_axi_concat_wdata->offset_port(0, 0);
-  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<8, 2>("m_axi_concat_wstrb");
+  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<16, 2>("m_axi_concat_wstrb");
   mp_m_axi_concat_wstrb->in_port[0](m_axi_concat_wstrb_out_0);
   mp_m_axi_concat_wstrb->out_port(m_axi_wstrb);
     mp_m_axi_concat_wstrb->offset_port(0, 0);
@@ -1379,10 +1379,10 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_arready->in_port(m_axi_arready);
   mp_m_axi_split_arready->out_port[0](m_axi_split_arready_out_0);
     mp_m_axi_split_arready->add_mask(0,1,0);
-  mp_m_axi_split_rdata = new xsc::xsc_split<64, 2>("m_axi_split_rdata");
+  mp_m_axi_split_rdata = new xsc::xsc_split<128, 2>("m_axi_split_rdata");
   mp_m_axi_split_rdata->in_port(m_axi_rdata);
   mp_m_axi_split_rdata->out_port[0](m_axi_split_rdata_out_0);
-    mp_m_axi_split_rdata->add_mask(0,32,0);
+    mp_m_axi_split_rdata->add_mask(0,64,0);
   mp_m_axi_split_rresp = new xsc::xsc_split<4, 2>("m_axi_split_rresp");
   mp_m_axi_split_rresp->in_port(m_axi_rresp);
   mp_m_axi_split_rresp->out_port[0](m_axi_split_rresp_out_0);
@@ -1405,9 +1405,9 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_split_awready->out_port[1](m_axi_split_awready_out_1);
     mp_m_axi_split_awready->add_mask(1,2,1);
   mp_m_axi_concat_wdata->in_port[1](m_axi_concat_wdata_out_1);
-  mp_m_axi_concat_wdata->offset_port(1, 32);
+  mp_m_axi_concat_wdata->offset_port(1, 64);
   mp_m_axi_concat_wstrb->in_port[1](m_axi_concat_wstrb_out_1);
-  mp_m_axi_concat_wstrb->offset_port(1, 4);
+  mp_m_axi_concat_wstrb->offset_port(1, 8);
   mp_m_axi_concat_wvalid->in_port[1](m_axi_concat_wvalid_out_1);
   mp_m_axi_concat_wvalid->offset_port(1, 1);
   
@@ -1432,7 +1432,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     mp_m_axi_split_arready->add_mask(1,2,1);
   
   mp_m_axi_split_rdata->out_port[1](m_axi_split_rdata_out_1);
-    mp_m_axi_split_rdata->add_mask(1,64,32);
+    mp_m_axi_split_rdata->add_mask(1,128,64);
   
   mp_m_axi_split_rresp->out_port[1](m_axi_split_rresp_out_1);
     mp_m_axi_split_rresp->add_mask(1,4,2);
@@ -1456,7 +1456,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'S00_AXI' transactor parameters
     xsc::common_cpp::properties S00_AXI_transactor_param_props;
-    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     S00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     S00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -1489,7 +1489,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     S00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
+    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
 
     // S00_AXI' transactor ports
 
@@ -1562,7 +1562,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'M00_AXI' transactor parameters
     xsc::common_cpp::properties M00_AXI_transactor_param_props;
-    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -1595,7 +1595,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     M00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
+    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
 
     // M00_AXI' transactor ports
 
@@ -1615,11 +1615,11 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_awready_converter_0->vector_in(m_axi_split_awready_out_0);
     mp_m_axi_awready_converter_0->scalar_out(m_m_axi_awready_converter_0_signal);
     mp_M00_AXI_transactor->AWREADY(m_m_axi_awready_converter_0_signal);
-    mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_0");
+    mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_0");
     mp_m_axi_wdata_converter_0->vector_in(m_m_axi_wdata_converter_0_signal);
     mp_m_axi_wdata_converter_0->vector_out(m_axi_concat_wdata_out_0);
     mp_M00_AXI_transactor->WDATA(m_m_axi_wdata_converter_0_signal);
-    mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_0");
+    mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_0");
     mp_m_axi_wstrb_converter_0->vector_in(m_m_axi_wstrb_converter_0_signal);
     mp_m_axi_wstrb_converter_0->vector_out(m_axi_concat_wstrb_out_0);
     mp_M00_AXI_transactor->WSTRB(m_m_axi_wstrb_converter_0_signal);
@@ -1659,7 +1659,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_arready_converter_0->vector_in(m_axi_split_arready_out_0);
     mp_m_axi_arready_converter_0->scalar_out(m_m_axi_arready_converter_0_signal);
     mp_M00_AXI_transactor->ARREADY(m_m_axi_arready_converter_0_signal);
-    mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_0");
+    mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_0");
     mp_m_axi_rdata_converter_0->vector_in(m_axi_split_rdata_out_0);
     mp_m_axi_rdata_converter_0->vector_out(m_m_axi_rdata_converter_0_signal);
     mp_M00_AXI_transactor->RDATA(m_m_axi_rdata_converter_0_signal);
@@ -1695,7 +1695,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
 
   // 'M01_AXI' transactor parameters
     xsc::common_cpp::properties M01_AXI_transactor_param_props;
-    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M01_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M01_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M01_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -1728,7 +1728,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     M01_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M01_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
+    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
 
     // M01_AXI' transactor ports
 
@@ -1748,11 +1748,11 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_awready_converter_1->vector_in(m_axi_split_awready_out_1);
     mp_m_axi_awready_converter_1->scalar_out(m_m_axi_awready_converter_1_signal);
     mp_M01_AXI_transactor->AWREADY(m_m_axi_awready_converter_1_signal);
-    mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_1");
+    mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_1");
     mp_m_axi_wdata_converter_1->vector_in(m_m_axi_wdata_converter_1_signal);
     mp_m_axi_wdata_converter_1->vector_out(m_axi_concat_wdata_out_1);
     mp_M01_AXI_transactor->WDATA(m_m_axi_wdata_converter_1_signal);
-    mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_1");
+    mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_1");
     mp_m_axi_wstrb_converter_1->vector_in(m_m_axi_wstrb_converter_1_signal);
     mp_m_axi_wstrb_converter_1->vector_out(m_axi_concat_wstrb_out_1);
     mp_M01_AXI_transactor->WSTRB(m_m_axi_wstrb_converter_1_signal);
@@ -1792,7 +1792,7 @@ void processor_design_xbar_0::before_end_of_elaboration()
     mp_m_axi_arready_converter_1->vector_in(m_axi_split_arready_out_1);
     mp_m_axi_arready_converter_1->scalar_out(m_m_axi_arready_converter_1_signal);
     mp_M01_AXI_transactor->ARREADY(m_m_axi_arready_converter_1_signal);
-    mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_1");
+    mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_1");
     mp_m_axi_rdata_converter_1->vector_in(m_axi_split_rdata_out_1);
     mp_m_axi_rdata_converter_1->vector_out(m_m_axi_rdata_converter_1_signal);
     mp_M01_AXI_transactor->RDATA(m_m_axi_rdata_converter_1_signal);
@@ -1912,7 +1912,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
 
   // configure S00_AXI_transactor
     xsc::common_cpp::properties S00_AXI_transactor_param_props;
-    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     S00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     S00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -1945,7 +1945,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     S00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
+    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
   mp_S00_AXI_transactor->AWADDR(s_axi_awaddr);
   mp_S00_AXI_transactor->AWPROT(s_axi_awprot);
   mp_s_axi_awvalid_converter = new xsc::common::vectorN2scalar_converter<1>("s_axi_awvalid_converter");
@@ -1999,7 +1999,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_S00_AXI_transactor->RST(aresetn);
   // configure M00_AXI_transactor
     xsc::common_cpp::properties M00_AXI_transactor_param_props;
-    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -2032,7 +2032,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     M00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
+    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
   mp_m_axi_awaddr_converter_0 = new xsc::common::vector2vector_converter<32,64>("m_axi_awaddr_converter_0");
   mp_m_axi_concat_awaddr = new xsc::xsc_concatenator<64, 2>("m_axi_concat_awaddr");
   mp_m_axi_concat_awaddr->in_port[0](m_axi_concat_awaddr_out_0);
@@ -2065,16 +2065,16 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_awready_converter_0->vector_in(m_axi_split_awready_out_0);
   mp_m_axi_awready_converter_0->scalar_out(m_m_axi_awready_converter_0_signal);
   mp_M00_AXI_transactor->AWREADY(m_m_axi_awready_converter_0_signal);
-  mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_0");
-  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<64, 2>("m_axi_concat_wdata");
+  mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_0");
+  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<128, 2>("m_axi_concat_wdata");
   mp_m_axi_concat_wdata->in_port[0](m_axi_concat_wdata_out_0);
   mp_m_axi_concat_wdata->out_port(m_axi_wdata);
     mp_m_axi_concat_wdata->offset_port(0, 0);
   mp_m_axi_wdata_converter_0->vector_in(m_m_axi_wdata_converter_0_signal);
   mp_m_axi_wdata_converter_0->vector_out(m_axi_concat_wdata_out_0);
   mp_M00_AXI_transactor->WDATA(m_m_axi_wdata_converter_0_signal);
-  mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_0");
-  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<8, 2>("m_axi_concat_wstrb");
+  mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_0");
+  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<16, 2>("m_axi_concat_wstrb");
   mp_m_axi_concat_wstrb->in_port[0](m_axi_concat_wstrb_out_0);
   mp_m_axi_concat_wstrb->out_port(m_axi_wstrb);
     mp_m_axi_concat_wstrb->offset_port(0, 0);
@@ -2153,11 +2153,11 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_arready_converter_0->vector_in(m_axi_split_arready_out_0);
   mp_m_axi_arready_converter_0->scalar_out(m_m_axi_arready_converter_0_signal);
   mp_M00_AXI_transactor->ARREADY(m_m_axi_arready_converter_0_signal);
-  mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_0");
-  mp_m_axi_split_rdata = new xsc::xsc_split<64, 2>("m_axi_split_rdata");
+  mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_0");
+  mp_m_axi_split_rdata = new xsc::xsc_split<128, 2>("m_axi_split_rdata");
   mp_m_axi_split_rdata->in_port(m_axi_rdata);
   mp_m_axi_split_rdata->out_port[0](m_axi_split_rdata_out_0);
-    mp_m_axi_split_rdata->add_mask(0,32,0);
+    mp_m_axi_split_rdata->add_mask(0,64,0);
   mp_m_axi_rdata_converter_0->vector_in(m_axi_split_rdata_out_0);
   mp_m_axi_rdata_converter_0->vector_out(m_m_axi_rdata_converter_0_signal);
   mp_M00_AXI_transactor->RDATA(m_m_axi_rdata_converter_0_signal);
@@ -2189,7 +2189,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_M00_AXI_transactor->RST(aresetn);
   // configure M01_AXI_transactor
     xsc::common_cpp::properties M01_AXI_transactor_param_props;
-    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M01_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M01_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M01_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -2222,7 +2222,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     M01_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M01_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
+    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
   mp_m_axi_awaddr_converter_1 = new xsc::common::vector2vector_converter<32,64>("m_axi_awaddr_converter_1");
   mp_m_axi_concat_awaddr->in_port[1](m_axi_concat_awaddr_out_1);
   mp_m_axi_concat_awaddr->offset_port(1, 32);
@@ -2248,15 +2248,15 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_awready_converter_1->vector_in(m_axi_split_awready_out_1);
   mp_m_axi_awready_converter_1->scalar_out(m_m_axi_awready_converter_1_signal);
   mp_M01_AXI_transactor->AWREADY(m_m_axi_awready_converter_1_signal);
-  mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_1");
+  mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_1");
   mp_m_axi_concat_wdata->in_port[1](m_axi_concat_wdata_out_1);
-  mp_m_axi_concat_wdata->offset_port(1, 32);
+  mp_m_axi_concat_wdata->offset_port(1, 64);
   mp_m_axi_wdata_converter_1->vector_in(m_m_axi_wdata_converter_1_signal);
   mp_m_axi_wdata_converter_1->vector_out(m_axi_concat_wdata_out_1);
   mp_M01_AXI_transactor->WDATA(m_m_axi_wdata_converter_1_signal);
-  mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_1");
+  mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_1");
   mp_m_axi_concat_wstrb->in_port[1](m_axi_concat_wstrb_out_1);
-  mp_m_axi_concat_wstrb->offset_port(1, 4);
+  mp_m_axi_concat_wstrb->offset_port(1, 8);
   mp_m_axi_wstrb_converter_1->vector_in(m_m_axi_wstrb_converter_1_signal);
   mp_m_axi_wstrb_converter_1->vector_out(m_axi_concat_wstrb_out_1);
   mp_M01_AXI_transactor->WSTRB(m_m_axi_wstrb_converter_1_signal);
@@ -2318,10 +2318,10 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_arready_converter_1->vector_in(m_axi_split_arready_out_1);
   mp_m_axi_arready_converter_1->scalar_out(m_m_axi_arready_converter_1_signal);
   mp_M01_AXI_transactor->ARREADY(m_m_axi_arready_converter_1_signal);
-  mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_1");
+  mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_1");
   
   mp_m_axi_split_rdata->out_port[1](m_axi_split_rdata_out_1);
-    mp_m_axi_split_rdata->add_mask(1,64,32);
+    mp_m_axi_split_rdata->add_mask(1,128,64);
   mp_m_axi_rdata_converter_1->vector_in(m_axi_split_rdata_out_1);
   mp_m_axi_rdata_converter_1->vector_out(m_m_axi_rdata_converter_1_signal);
   mp_M01_AXI_transactor->RDATA(m_m_axi_rdata_converter_1_signal);
@@ -2500,7 +2500,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
 
   // configure S00_AXI_transactor
     xsc::common_cpp::properties S00_AXI_transactor_param_props;
-    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    S00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     S00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     S00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     S00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -2533,7 +2533,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     S00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     S00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<32,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
+    mp_S00_AXI_transactor = new xtlm::xaximm_pin2xtlm_t<64,32,1,1,1,1,1,1>("S00_AXI_transactor", S00_AXI_transactor_param_props);
   mp_S00_AXI_transactor->AWADDR(s_axi_awaddr);
   mp_S00_AXI_transactor->AWPROT(s_axi_awprot);
   mp_s_axi_awvalid_converter = new xsc::common::vectorN2scalar_converter<1>("s_axi_awvalid_converter");
@@ -2587,7 +2587,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_S00_AXI_transactor->RST(aresetn);
   // configure M00_AXI_transactor
     xsc::common_cpp::properties M00_AXI_transactor_param_props;
-    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M00_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M00_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M00_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M00_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -2620,7 +2620,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     M00_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M00_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
+    mp_M00_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M00_AXI_transactor", M00_AXI_transactor_param_props);
   mp_m_axi_awaddr_converter_0 = new xsc::common::vector2vector_converter<32,64>("m_axi_awaddr_converter_0");
   mp_m_axi_concat_awaddr = new xsc::xsc_concatenator<64, 2>("m_axi_concat_awaddr");
   mp_m_axi_concat_awaddr->in_port[0](m_axi_concat_awaddr_out_0);
@@ -2653,16 +2653,16 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_awready_converter_0->vector_in(m_axi_split_awready_out_0);
   mp_m_axi_awready_converter_0->scalar_out(m_m_axi_awready_converter_0_signal);
   mp_M00_AXI_transactor->AWREADY(m_m_axi_awready_converter_0_signal);
-  mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_0");
-  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<64, 2>("m_axi_concat_wdata");
+  mp_m_axi_wdata_converter_0 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_0");
+  mp_m_axi_concat_wdata = new xsc::xsc_concatenator<128, 2>("m_axi_concat_wdata");
   mp_m_axi_concat_wdata->in_port[0](m_axi_concat_wdata_out_0);
   mp_m_axi_concat_wdata->out_port(m_axi_wdata);
     mp_m_axi_concat_wdata->offset_port(0, 0);
   mp_m_axi_wdata_converter_0->vector_in(m_m_axi_wdata_converter_0_signal);
   mp_m_axi_wdata_converter_0->vector_out(m_axi_concat_wdata_out_0);
   mp_M00_AXI_transactor->WDATA(m_m_axi_wdata_converter_0_signal);
-  mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_0");
-  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<8, 2>("m_axi_concat_wstrb");
+  mp_m_axi_wstrb_converter_0 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_0");
+  mp_m_axi_concat_wstrb = new xsc::xsc_concatenator<16, 2>("m_axi_concat_wstrb");
   mp_m_axi_concat_wstrb->in_port[0](m_axi_concat_wstrb_out_0);
   mp_m_axi_concat_wstrb->out_port(m_axi_wstrb);
     mp_m_axi_concat_wstrb->offset_port(0, 0);
@@ -2741,11 +2741,11 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_arready_converter_0->vector_in(m_axi_split_arready_out_0);
   mp_m_axi_arready_converter_0->scalar_out(m_m_axi_arready_converter_0_signal);
   mp_M00_AXI_transactor->ARREADY(m_m_axi_arready_converter_0_signal);
-  mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_0");
-  mp_m_axi_split_rdata = new xsc::xsc_split<64, 2>("m_axi_split_rdata");
+  mp_m_axi_rdata_converter_0 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_0");
+  mp_m_axi_split_rdata = new xsc::xsc_split<128, 2>("m_axi_split_rdata");
   mp_m_axi_split_rdata->in_port(m_axi_rdata);
   mp_m_axi_split_rdata->out_port[0](m_axi_split_rdata_out_0);
-    mp_m_axi_split_rdata->add_mask(0,32,0);
+    mp_m_axi_split_rdata->add_mask(0,64,0);
   mp_m_axi_rdata_converter_0->vector_in(m_axi_split_rdata_out_0);
   mp_m_axi_rdata_converter_0->vector_out(m_m_axi_rdata_converter_0_signal);
   mp_M00_AXI_transactor->RDATA(m_m_axi_rdata_converter_0_signal);
@@ -2777,7 +2777,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_M00_AXI_transactor->RST(aresetn);
   // configure M01_AXI_transactor
     xsc::common_cpp::properties M01_AXI_transactor_param_props;
-    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "32");
+    M01_AXI_transactor_param_props.addLong("DATA_WIDTH", "64");
     M01_AXI_transactor_param_props.addLong("FREQ_HZ", "50000000");
     M01_AXI_transactor_param_props.addLong("ID_WIDTH", "0");
     M01_AXI_transactor_param_props.addLong("ADDR_WIDTH", "32");
@@ -2810,7 +2810,7 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
     M01_AXI_transactor_param_props.addString("READ_WRITE_MODE", "READ_WRITE");
     M01_AXI_transactor_param_props.addString("CLK_DOMAIN", "processor_design_processing_system7_0_0_FCLK_CLK0");
 
-    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<32,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
+    mp_M01_AXI_transactor = new xtlm::xaximm_xtlm2pin_t<64,32,1,1,1,1,1,1>("M01_AXI_transactor", M01_AXI_transactor_param_props);
   mp_m_axi_awaddr_converter_1 = new xsc::common::vector2vector_converter<32,64>("m_axi_awaddr_converter_1");
   mp_m_axi_concat_awaddr->in_port[1](m_axi_concat_awaddr_out_1);
   mp_m_axi_concat_awaddr->offset_port(1, 32);
@@ -2836,15 +2836,15 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_awready_converter_1->vector_in(m_axi_split_awready_out_1);
   mp_m_axi_awready_converter_1->scalar_out(m_m_axi_awready_converter_1_signal);
   mp_M01_AXI_transactor->AWREADY(m_m_axi_awready_converter_1_signal);
-  mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<32,64>("m_axi_wdata_converter_1");
+  mp_m_axi_wdata_converter_1 = new xsc::common::vector2vector_converter<64,128>("m_axi_wdata_converter_1");
   mp_m_axi_concat_wdata->in_port[1](m_axi_concat_wdata_out_1);
-  mp_m_axi_concat_wdata->offset_port(1, 32);
+  mp_m_axi_concat_wdata->offset_port(1, 64);
   mp_m_axi_wdata_converter_1->vector_in(m_m_axi_wdata_converter_1_signal);
   mp_m_axi_wdata_converter_1->vector_out(m_axi_concat_wdata_out_1);
   mp_M01_AXI_transactor->WDATA(m_m_axi_wdata_converter_1_signal);
-  mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<4,8>("m_axi_wstrb_converter_1");
+  mp_m_axi_wstrb_converter_1 = new xsc::common::vector2vector_converter<8,16>("m_axi_wstrb_converter_1");
   mp_m_axi_concat_wstrb->in_port[1](m_axi_concat_wstrb_out_1);
-  mp_m_axi_concat_wstrb->offset_port(1, 4);
+  mp_m_axi_concat_wstrb->offset_port(1, 8);
   mp_m_axi_wstrb_converter_1->vector_in(m_m_axi_wstrb_converter_1_signal);
   mp_m_axi_wstrb_converter_1->vector_out(m_axi_concat_wstrb_out_1);
   mp_M01_AXI_transactor->WSTRB(m_m_axi_wstrb_converter_1_signal);
@@ -2906,10 +2906,10 @@ processor_design_xbar_0::processor_design_xbar_0(const sc_core::sc_module_name& 
   mp_m_axi_arready_converter_1->vector_in(m_axi_split_arready_out_1);
   mp_m_axi_arready_converter_1->scalar_out(m_m_axi_arready_converter_1_signal);
   mp_M01_AXI_transactor->ARREADY(m_m_axi_arready_converter_1_signal);
-  mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<64,32>("m_axi_rdata_converter_1");
+  mp_m_axi_rdata_converter_1 = new xsc::common::vector2vector_converter<128,64>("m_axi_rdata_converter_1");
   
   mp_m_axi_split_rdata->out_port[1](m_axi_split_rdata_out_1);
-    mp_m_axi_split_rdata->add_mask(1,64,32);
+    mp_m_axi_split_rdata->add_mask(1,128,64);
   mp_m_axi_rdata_converter_1->vector_in(m_axi_split_rdata_out_1);
   mp_m_axi_rdata_converter_1->vector_out(m_m_axi_rdata_converter_1_signal);
   mp_M01_AXI_transactor->RDATA(m_m_axi_rdata_converter_1_signal);
@@ -3090,6 +3090,6 @@ XMSC_MODULE_EXPORT(processor_design_xbar_0);
 
 #ifdef RIVIERA
 SC_MODULE_EXPORT(processor_design_xbar_0);
-SC_REGISTER_BV(64);
+SC_REGISTER_BV(128);
 #endif
 

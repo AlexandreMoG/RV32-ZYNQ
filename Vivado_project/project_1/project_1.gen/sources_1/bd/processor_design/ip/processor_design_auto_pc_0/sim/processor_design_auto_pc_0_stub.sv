@@ -72,8 +72,8 @@ module processor_design_auto_pc_0 (
   input bit [2 : 0] s_axi_awprot,
   input bit_as_bool s_axi_awvalid,
   output bit_as_bool s_axi_awready,
-  input bit [31 : 0] s_axi_wdata,
-  input bit [3 : 0] s_axi_wstrb,
+  input bit [63 : 0] s_axi_wdata,
+  input bit [7 : 0] s_axi_wstrb,
   input bit_as_bool s_axi_wvalid,
   output bit_as_bool s_axi_wready,
   output bit [1 : 0] s_axi_bresp,
@@ -83,7 +83,7 @@ module processor_design_auto_pc_0 (
   input bit [2 : 0] s_axi_arprot,
   input bit_as_bool s_axi_arvalid,
   output bit_as_bool s_axi_arready,
-  output bit [31 : 0] s_axi_rdata,
+  output bit [63 : 0] s_axi_rdata,
   output bit [1 : 0] s_axi_rresp,
   output bit_as_bool s_axi_rvalid,
   input bit_as_bool s_axi_rready,
@@ -97,8 +97,8 @@ module processor_design_auto_pc_0 (
   output bit [3 : 0] m_axi_awqos,
   output bit_as_bool m_axi_awvalid,
   input bit_as_bool m_axi_awready,
-  output bit [31 : 0] m_axi_wdata,
-  output bit [3 : 0] m_axi_wstrb,
+  output bit [63 : 0] m_axi_wdata,
+  output bit [7 : 0] m_axi_wstrb,
   output bit_as_bool m_axi_wlast,
   output bit_as_bool m_axi_wvalid,
   input bit_as_bool m_axi_wready,
@@ -115,7 +115,7 @@ module processor_design_auto_pc_0 (
   output bit [3 : 0] m_axi_arqos,
   output bit_as_bool m_axi_arvalid,
   input bit_as_bool m_axi_arready,
-  input bit [31 : 0] m_axi_rdata,
+  input bit [63 : 0] m_axi_rdata,
   input bit [1 : 0] m_axi_rresp,
   input bit_as_bool m_axi_rlast,
   input bit_as_bool m_axi_rvalid,
@@ -135,8 +135,8 @@ module processor_design_auto_pc_0 (aclk,aresetn,s_axi_awaddr,s_axi_awprot,s_axi_
   input bit [2 : 0] s_axi_awprot;
   input bit s_axi_awvalid;
   output wire s_axi_awready;
-  input bit [31 : 0] s_axi_wdata;
-  input bit [3 : 0] s_axi_wstrb;
+  input bit [63 : 0] s_axi_wdata;
+  input bit [7 : 0] s_axi_wstrb;
   input bit s_axi_wvalid;
   output wire s_axi_wready;
   output wire [1 : 0] s_axi_bresp;
@@ -146,7 +146,7 @@ module processor_design_auto_pc_0 (aclk,aresetn,s_axi_awaddr,s_axi_awprot,s_axi_
   input bit [2 : 0] s_axi_arprot;
   input bit s_axi_arvalid;
   output wire s_axi_arready;
-  output wire [31 : 0] s_axi_rdata;
+  output wire [63 : 0] s_axi_rdata;
   output wire [1 : 0] s_axi_rresp;
   output wire s_axi_rvalid;
   input bit s_axi_rready;
@@ -160,8 +160,8 @@ module processor_design_auto_pc_0 (aclk,aresetn,s_axi_awaddr,s_axi_awprot,s_axi_
   output wire [3 : 0] m_axi_awqos;
   output wire m_axi_awvalid;
   input bit m_axi_awready;
-  output wire [31 : 0] m_axi_wdata;
-  output wire [3 : 0] m_axi_wstrb;
+  output wire [63 : 0] m_axi_wdata;
+  output wire [7 : 0] m_axi_wstrb;
   output wire m_axi_wlast;
   output wire m_axi_wvalid;
   input bit m_axi_wready;
@@ -178,7 +178,7 @@ module processor_design_auto_pc_0 (aclk,aresetn,s_axi_awaddr,s_axi_awprot,s_axi_
   output wire [3 : 0] m_axi_arqos;
   output wire m_axi_arvalid;
   input bit m_axi_arready;
-  input bit [31 : 0] m_axi_rdata;
+  input bit [63 : 0] m_axi_rdata;
   input bit [1 : 0] m_axi_rresp;
   input bit m_axi_rlast;
   input bit m_axi_rvalid;

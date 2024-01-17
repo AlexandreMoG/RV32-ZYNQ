@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Tue Jan 16 14:10:49 2024
+// Date        : Thu Jan 18 00:04:58 2024
 // Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/Alexandre/Desktop/git/RV32-ZYNQ/Vivado_project/project_1/project_1.gen/sources_1/bd/processor_design/ip/processor_design_ila_0_0/processor_design_ila_0_0_stub.v
@@ -18,7 +18,7 @@
 module processor_design_ila_0_0(clk, probe0, probe1, probe2, probe3, probe4, probe5, 
   probe6, probe7, probe8, probe9, probe10, probe11, probe12, probe13, probe14, probe15, probe16, probe17, 
   probe18)
-/* synthesis syn_black_box black_box_pad_pin="probe0[0:0],probe1[31:0],probe2[1:0],probe3[0:0],probe4[0:0],probe5[31:0],probe6[0:0],probe7[0:0],probe8[0:0],probe9[0:0],probe10[31:0],probe11[0:0],probe12[0:0],probe13[1:0],probe14[31:0],probe15[3:0],probe16[0:0],probe17[2:0],probe18[2:0]" */
+/* synthesis syn_black_box black_box_pad_pin="probe0[0:0],probe1[31:0],probe2[1:0],probe3[0:0],probe4[0:0],probe5[31:0],probe6[0:0],probe7[0:0],probe8[0:0],probe9[0:0],probe10[63:0],probe11[0:0],probe12[0:0],probe13[1:0],probe14[63:0],probe15[7:0],probe16[0:0],probe17[2:0],probe18[2:0]" */
 /* synthesis syn_force_seq_prim="clk" */;
   input clk /* synthesis syn_isclock = 1 */;
   input [0:0]probe0;
@@ -31,12 +31,12 @@ module processor_design_ila_0_0(clk, probe0, probe1, probe2, probe3, probe4, pro
   input [0:0]probe7;
   input [0:0]probe8;
   input [0:0]probe9;
-  input [31:0]probe10;
+  input [63:0]probe10;
   input [0:0]probe11;
   input [0:0]probe12;
   input [1:0]probe13;
-  input [31:0]probe14;
-  input [3:0]probe15;
+  input [63:0]probe14;
+  input [7:0]probe15;
   input [0:0]probe16;
   input [2:0]probe17;
   input [2:0]probe18;

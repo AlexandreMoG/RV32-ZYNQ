@@ -2,7 +2,7 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Tue Jan 16 14:09:50 2024
+// Date        : Thu Jan 18 00:03:47 2024
 // Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               c:/Users/Alexandre/Desktop/git/RV32-ZYNQ/Vivado_project/project_1/project_1.gen/sources_1/bd/processor_design/ip/processor_design_xbar_0/processor_design_xbar_0_stub.v
@@ -22,7 +22,7 @@ module processor_design_xbar_0(aclk, aresetn, s_axi_awaddr, s_axi_awprot,
   m_axi_awprot, m_axi_awvalid, m_axi_awready, m_axi_wdata, m_axi_wstrb, m_axi_wvalid, 
   m_axi_wready, m_axi_bresp, m_axi_bvalid, m_axi_bready, m_axi_araddr, m_axi_arprot, 
   m_axi_arvalid, m_axi_arready, m_axi_rdata, m_axi_rresp, m_axi_rvalid, m_axi_rready)
-/* synthesis syn_black_box black_box_pad_pin="aresetn,s_axi_awaddr[31:0],s_axi_awprot[2:0],s_axi_awvalid[0:0],s_axi_awready[0:0],s_axi_wdata[31:0],s_axi_wstrb[3:0],s_axi_wvalid[0:0],s_axi_wready[0:0],s_axi_bresp[1:0],s_axi_bvalid[0:0],s_axi_bready[0:0],s_axi_araddr[31:0],s_axi_arprot[2:0],s_axi_arvalid[0:0],s_axi_arready[0:0],s_axi_rdata[31:0],s_axi_rresp[1:0],s_axi_rvalid[0:0],s_axi_rready[0:0],m_axi_awaddr[63:0],m_axi_awprot[5:0],m_axi_awvalid[1:0],m_axi_awready[1:0],m_axi_wdata[63:0],m_axi_wstrb[7:0],m_axi_wvalid[1:0],m_axi_wready[1:0],m_axi_bresp[3:0],m_axi_bvalid[1:0],m_axi_bready[1:0],m_axi_araddr[63:0],m_axi_arprot[5:0],m_axi_arvalid[1:0],m_axi_arready[1:0],m_axi_rdata[63:0],m_axi_rresp[3:0],m_axi_rvalid[1:0],m_axi_rready[1:0]" */
+/* synthesis syn_black_box black_box_pad_pin="aresetn,s_axi_awaddr[31:0],s_axi_awprot[2:0],s_axi_awvalid[0:0],s_axi_awready[0:0],s_axi_wdata[63:0],s_axi_wstrb[7:0],s_axi_wvalid[0:0],s_axi_wready[0:0],s_axi_bresp[1:0],s_axi_bvalid[0:0],s_axi_bready[0:0],s_axi_araddr[31:0],s_axi_arprot[2:0],s_axi_arvalid[0:0],s_axi_arready[0:0],s_axi_rdata[63:0],s_axi_rresp[1:0],s_axi_rvalid[0:0],s_axi_rready[0:0],m_axi_awaddr[63:0],m_axi_awprot[5:0],m_axi_awvalid[1:0],m_axi_awready[1:0],m_axi_wdata[127:0],m_axi_wstrb[15:0],m_axi_wvalid[1:0],m_axi_wready[1:0],m_axi_bresp[3:0],m_axi_bvalid[1:0],m_axi_bready[1:0],m_axi_araddr[63:0],m_axi_arprot[5:0],m_axi_arvalid[1:0],m_axi_arready[1:0],m_axi_rdata[127:0],m_axi_rresp[3:0],m_axi_rvalid[1:0],m_axi_rready[1:0]" */
 /* synthesis syn_force_seq_prim="aclk" */;
   input aclk /* synthesis syn_isclock = 1 */;
   input aresetn;
@@ -30,8 +30,8 @@ module processor_design_xbar_0(aclk, aresetn, s_axi_awaddr, s_axi_awprot,
   input [2:0]s_axi_awprot;
   input [0:0]s_axi_awvalid;
   output [0:0]s_axi_awready;
-  input [31:0]s_axi_wdata;
-  input [3:0]s_axi_wstrb;
+  input [63:0]s_axi_wdata;
+  input [7:0]s_axi_wstrb;
   input [0:0]s_axi_wvalid;
   output [0:0]s_axi_wready;
   output [1:0]s_axi_bresp;
@@ -41,7 +41,7 @@ module processor_design_xbar_0(aclk, aresetn, s_axi_awaddr, s_axi_awprot,
   input [2:0]s_axi_arprot;
   input [0:0]s_axi_arvalid;
   output [0:0]s_axi_arready;
-  output [31:0]s_axi_rdata;
+  output [63:0]s_axi_rdata;
   output [1:0]s_axi_rresp;
   output [0:0]s_axi_rvalid;
   input [0:0]s_axi_rready;
@@ -49,8 +49,8 @@ module processor_design_xbar_0(aclk, aresetn, s_axi_awaddr, s_axi_awprot,
   output [5:0]m_axi_awprot;
   output [1:0]m_axi_awvalid;
   input [1:0]m_axi_awready;
-  output [63:0]m_axi_wdata;
-  output [7:0]m_axi_wstrb;
+  output [127:0]m_axi_wdata;
+  output [15:0]m_axi_wstrb;
   output [1:0]m_axi_wvalid;
   input [1:0]m_axi_wready;
   input [3:0]m_axi_bresp;
@@ -60,7 +60,7 @@ module processor_design_xbar_0(aclk, aresetn, s_axi_awaddr, s_axi_awprot,
   output [5:0]m_axi_arprot;
   output [1:0]m_axi_arvalid;
   input [1:0]m_axi_arready;
-  input [63:0]m_axi_rdata;
+  input [127:0]m_axi_rdata;
   input [3:0]m_axi_rresp;
   input [1:0]m_axi_rvalid;
   output [1:0]m_axi_rready;
