@@ -29,3 +29,4 @@
 - Recherches Comment on crée un espace d'adressage pour le processeur : dire qu'a l'adresse 0 c'est une bootrom,a ladresse 3M c'est autre chose... etc ? : GUICHETEAU
 18/01/24
 - MaJ du design vivado pour utiliser les ports AXI S HP pour interfacer la mémoire : MORAL
+- Creation d'un design utilisant une bootrom : MORAL
