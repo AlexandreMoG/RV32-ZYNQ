@@ -30,4 +30,8 @@
 18/01/24
 - MaJ du design vivado pour utiliser les ports AXI S HP pour interfacer la mémoire : MORAL
 - Creation d'un design utilisant une bootrom : MORAL
-- ajout fichier de test mémoire pour la bootrom : ASSIER
+- Ajout fichier de test mémoire pour la bootrom : ASSIER
+21/01/24
+- Ajout fihier md d'explication pour Setup une ToolChain : ASSIER
+22/01/24
+- Test implémentation fichier .coe en bootrom : ASSIER - MORAL
