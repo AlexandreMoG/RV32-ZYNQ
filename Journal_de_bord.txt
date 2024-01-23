@@ -36,4 +36,5 @@
 22/01/24
 - Test implémentation fichier .coe en bootrom : ASSIER - MORAL
 23/01/24
-- Modification du .coe pour essayer d'observer des transitions sur le bus AXI 
+- Modification du .coe pour essayer d'observer des transitions sur le bus AXI : MORAL - ASSIER
+- Modification du bloc design et des ILA : Il y a bien des transactions avec la bootrom et du code s'exécute : MORAL
