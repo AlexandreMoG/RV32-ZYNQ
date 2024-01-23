@@ -35,3 +35,5 @@
 - Ajout fihier md d'explication pour Setup une ToolChain : ASSIER
 22/01/24
 - Test implémentation fichier .coe en bootrom : ASSIER - MORAL
+23/01/24
+- Modification du .coe pour essayer d'observer des transitions sur le bus AXI 
