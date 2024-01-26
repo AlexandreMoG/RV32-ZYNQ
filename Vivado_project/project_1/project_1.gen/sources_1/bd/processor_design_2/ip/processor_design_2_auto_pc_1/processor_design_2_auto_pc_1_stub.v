@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 // Date        : Tue Jan 23 14:52:06 2024
 // Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/Alexandre/Desktop/git/RV32-ZYNQ/Vivado_project/project_1/project_1.gen/sources_1/bd/processor_design_2/ip/processor_design_2_auto_pc_1/processor_design_2_auto_pc_1_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top processor_design_2_auto_pc_1 -prefix
+//               processor_design_2_auto_pc_1_ processor_design_2_auto_pc_1_stub.v
 // Design      : processor_design_2_auto_pc_1
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg400-1

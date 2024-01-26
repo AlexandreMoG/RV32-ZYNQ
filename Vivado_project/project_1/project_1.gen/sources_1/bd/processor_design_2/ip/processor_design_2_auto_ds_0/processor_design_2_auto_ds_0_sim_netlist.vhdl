@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
 -- Date        : Tue Jan 23 14:52:07 2024
 -- Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/Alexandre/Desktop/git/RV32-ZYNQ/Vivado_project/project_1/project_1.gen/sources_1/bd/processor_design_2/ip/processor_design_2_auto_ds_0/processor_design_2_auto_ds_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top processor_design_2_auto_ds_0 -prefix
+--               processor_design_2_auto_ds_0_ processor_design_2_auto_ds_0_sim_netlist.vhdl
 -- Design      : processor_design_2_auto_ds_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -52,8 +52,6 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsi
     s_axi_wvalid : in STD_LOGIC;
     s_axi_araddr : in STD_LOGIC_VECTOR ( 12 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsizer : entity is "axi_dwidth_converter_v2_1_29_axi4lite_downsizer";
 end processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsizer;
 
 architecture STRUCTURE of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsizer is
@@ -2261,8 +2259,6 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top is
   attribute C_S_AXI_ID_WIDTH of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is 1;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is "yes";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is "axi_dwidth_converter_v2_1_29_top";
   attribute P_AXI3 : integer;
   attribute P_AXI3 of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is 1;
   attribute P_AXI4 : integer;

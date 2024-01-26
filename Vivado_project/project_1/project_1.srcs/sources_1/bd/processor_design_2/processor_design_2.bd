@@ -14,7 +14,6 @@
       "processing_system7_0": "",
       "picorv32_axi_0": "",
       "rst_ps7_0_50M": "",
-      "ila_0": "",
       "axi_bram_ctrl_0": "",
       "blk_mem_gen_0": "",
       "axi_mem_intercon": {
@@ -30,7 +29,11 @@
           "auto_pc": ""
         }
       },
-      "ila_1": ""
+      "ila_pico": "",
+      "xlconstant_0": "",
+      "xlconstant_1": "",
+      "ila_bootrom": "",
+      "ila_PS": ""
     },
     "interface_ports": {
       "DDR": {
@@ -1864,13 +1867,6 @@
         "xci_path": "ip\\processor_design_2_rst_ps7_0_50M_0\\processor_design_2_rst_ps7_0_50M_0.xci",
         "inst_hier_path": "rst_ps7_0_50M"
       },
-      "ila_0": {
-        "vlnv": "xilinx.com:ip:ila:6.2",
-        "ip_revision": "14",
-        "xci_name": "processor_design_2_ila_0_0",
-        "xci_path": "ip\\processor_design_2_ila_0_0\\processor_design_2_ila_0_0.xci",
-        "inst_hier_path": "ila_0"
-      },
       "axi_bram_ctrl_0": {
         "vlnv": "xilinx.com:ip:axi_bram_ctrl:4.1",
         "ip_revision": "9",
@@ -1889,7 +1885,7 @@
             "value": "false"
           },
           "Coe_File": {
-            "value": "../../../../../../../test/test.coe"
+            "value": "../../../../../../../test/test_memory_p1_loop.coe"
           },
           "Load_Init_File": {
             "value": "true"
@@ -2422,12 +2418,53 @@
           }
         }
       },
-      "ila_1": {
+      "ila_pico": {
         "vlnv": "xilinx.com:ip:ila:6.2",
         "ip_revision": "14",
-        "xci_name": "processor_design_2_ila_1_0",
-        "xci_path": "ip\\processor_design_2_ila_1_0\\processor_design_2_ila_1_0.xci",
-        "inst_hier_path": "ila_1"
+        "xci_name": "processor_design_2_ila_2_0",
+        "xci_path": "ip\\processor_design_2_ila_2_0\\processor_design_2_ila_2_0.xci",
+        "inst_hier_path": "ila_pico"
+      },
+      "xlconstant_0": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "8",
+        "xci_name": "processor_design_2_xlconstant_0_0",
+        "xci_path": "ip\\processor_design_2_xlconstant_0_0\\processor_design_2_xlconstant_0_0.xci",
+        "inst_hier_path": "xlconstant_0",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          },
+          "CONST_WIDTH": {
+            "value": "32"
+          }
+        }
+      },
+      "xlconstant_1": {
+        "vlnv": "xilinx.com:ip:xlconstant:1.1",
+        "ip_revision": "8",
+        "xci_name": "processor_design_2_xlconstant_1_0",
+        "xci_path": "ip\\processor_design_2_xlconstant_1_0\\processor_design_2_xlconstant_1_0.xci",
+        "inst_hier_path": "xlconstant_1",
+        "parameters": {
+          "CONST_VAL": {
+            "value": "0"
+          }
+        }
+      },
+      "ila_bootrom": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "ip_revision": "14",
+        "xci_name": "processor_design_2_ila_pico_0",
+        "xci_path": "ip\\processor_design_2_ila_pico_0\\processor_design_2_ila_pico_0.xci",
+        "inst_hier_path": "ila_bootrom"
+      },
+      "ila_PS": {
+        "vlnv": "xilinx.com:ip:ila:6.2",
+        "ip_revision": "14",
+        "xci_name": "processor_design_2_ila_bootrom_0",
+        "xci_path": "ip\\processor_design_2_ila_bootrom_0\\processor_design_2_ila_bootrom_0.xci",
+        "inst_hier_path": "ila_PS"
       }
     },
     "interface_nets": {
@@ -2447,20 +2484,21 @@
         "interface_ports": [
           "axi_mem_intercon/M00_AXI",
           "processing_system7_0/S_AXI_HP0",
-          "ila_0/SLOT_0_AXI"
+          "ila_PS/SLOT_0_AXI"
         ]
       },
       "axi_mem_intercon_M01_AXI": {
         "interface_ports": [
           "axi_bram_ctrl_0/S_AXI",
           "axi_mem_intercon/M01_AXI",
-          "ila_1/SLOT_0_AXI"
+          "ila_bootrom/SLOT_0_AXI"
         ]
       },
       "picorv32_axi_0_mem_axi": {
         "interface_ports": [
           "picorv32_axi_0/mem_axi",
-          "axi_mem_intercon/S00_AXI"
+          "axi_mem_intercon/S00_AXI",
+          "ila_pico/SLOT_0_AXI"
         ]
       },
       "processing_system7_0_DDR": {
@@ -2483,13 +2521,14 @@
           "processing_system7_0/S_AXI_HP0_ACLK",
           "picorv32_axi_0/clk",
           "rst_ps7_0_50M/slowest_sync_clk",
-          "ila_0/clk",
           "axi_bram_ctrl_0/s_axi_aclk",
           "axi_mem_intercon/ACLK",
           "axi_mem_intercon/M01_ACLK",
           "axi_mem_intercon/S00_ACLK",
           "axi_mem_intercon/M00_ACLK",
-          "ila_1/clk"
+          "ila_pico/clk",
+          "ila_bootrom/clk",
+          "ila_PS/clk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -2507,6 +2546,21 @@
           "axi_mem_intercon/M01_ARESETN",
           "axi_mem_intercon/M00_ARESETN",
           "axi_mem_intercon/S00_ARESETN"
+        ]
+      },
+      "xlconstant_0_dout": {
+        "ports": [
+          "xlconstant_0/dout",
+          "picorv32_axi_0/pcpi_rd",
+          "picorv32_axi_0/irq"
+        ]
+      },
+      "xlconstant_1_dout": {
+        "ports": [
+          "xlconstant_1/dout",
+          "picorv32_axi_0/pcpi_ready",
+          "picorv32_axi_0/pcpi_wait",
+          "picorv32_axi_0/pcpi_wr"
         ]
       }
     },

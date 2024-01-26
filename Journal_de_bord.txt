@@ -38,3 +38,7 @@
 23/01/24
 - Modification du .coe pour essayer d'observer des transitions sur le bus AXI : MORAL - ASSIER
 - Modification du bloc design et des ILA : Il y a bien des transactions avec la bootrom et du code s'exécute : MORAL
+24/01/24 - 25/01/24
+- Recherches pour faire fonctionner les transactions sur le BUS AXI
+- Validation du test qui permet d'interfacer avec la mémoire du PS : MORAL
+- Ajout de constantes dans le bloc design pour supprimer les warning du PCPI et de l'IRQ du picorv32 : MORAL

@@ -1,4 +1,4 @@
-lui t0, 0x2000
+lui t0, 0x20000
 lui t1, 0
 lw t2, 0(t0)
 add t3, t2, t1
