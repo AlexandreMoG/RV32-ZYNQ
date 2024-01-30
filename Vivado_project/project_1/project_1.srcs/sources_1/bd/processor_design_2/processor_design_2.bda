@@ -223,6 +223,60 @@
                 "SV": "xilinx.com:ip:processing_system7:5.5",
                 "TM": "both",
                 "TU": "memory"
+            },
+            "V5": {
+                "VT": "AC",
+                "BA": "0x40000000",
+                "HA": "0x4000FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "mem_axi",
+                "MX": "/picorv32_axi_0",
+                "MI": "mem_axi",
+                "MS": "SEG_axi_gpio_btns_Reg",
+                "MV": "xilinx.com:user:picorv32_axi:1.0",
+                "SX": "/axi_gpio_btns",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V6": {
+                "VT": "AC",
+                "BA": "0x40010000",
+                "HA": "0x4001FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "mem_axi",
+                "MX": "/picorv32_axi_0",
+                "MI": "mem_axi",
+                "MS": "SEG_axi_gpio_leds_Reg",
+                "MV": "xilinx.com:user:picorv32_axi:1.0",
+                "SX": "/axi_gpio_leds",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V7": {
+                "VT": "AC",
+                "BA": "0x40020000",
+                "HA": "0x4002FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "mem_axi",
+                "MX": "/picorv32_axi_0",
+                "MI": "mem_axi",
+                "MS": "SEG_axi_gpio_sws_Reg",
+                "MV": "xilinx.com:user:picorv32_axi:1.0",
+                "SX": "/axi_gpio_sws",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
             }
         },
         "edges": [
@@ -241,6 +295,21 @@
             },
             {
                 "src": "V4",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V5",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V6",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V7",
                 "trg": "V2",
                 "EH": "2"
             }

@@ -2,7 +2,7 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Mon Jan 22 12:50:24 2024
+-- Date        : Tue Jan 30 14:04:58 2024
 -- Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/Alexandre/Desktop/git/RV32-ZYNQ/Vivado_project/project_1/project_1.gen/sources_1/bd/processor_design_2/ip/processor_design_2_processing_system7_0_0/processor_design_2_processing_system7_0_0_sim_netlist.vhdl
@@ -6419,7 +6419,7 @@ architecture STRUCTURE of processor_design_2_processing_system7_0_0 is
   attribute X_INTERFACE_INFO of S_AXI_HP0_WDATA : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HP0 WDATA";
   attribute X_INTERFACE_INFO of S_AXI_HP0_WID : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HP0 WID";
   attribute X_INTERFACE_INFO of S_AXI_HP0_WSTRB : signal is "xilinx.com:interface:aximm:1.0 S_AXI_HP0 WSTRB";
-  attribute X_INTERFACE_PARAMETER of S_AXI_HP0_WSTRB : signal is "XIL_INTERFACENAME S_AXI_HP0, NUM_WRITE_OUTSTANDING 8, NUM_READ_OUTSTANDING 8, DATA_WIDTH 64, PROTOCOL AXI3, FREQ_HZ 50000000, ID_WIDTH 6, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, MAX_BURST_LENGTH 16, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of S_AXI_HP0_WSTRB : signal is "XIL_INTERFACENAME S_AXI_HP0, NUM_WRITE_OUTSTANDING 8, NUM_READ_OUTSTANDING 8, DATA_WIDTH 64, PROTOCOL AXI3, FREQ_HZ 50000000, ID_WIDTH 6, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of USB0_PORT_INDCTL : signal is "xilinx.com:display_processing_system7:usbctrl:1.0 USBIND_0 PORT_INDCTL";
 begin
 inst: entity work.processor_design_2_processing_system7_0_0_processing_system7_v5_5_processing_system7

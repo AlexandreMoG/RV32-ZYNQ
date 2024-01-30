@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-//Date        : Fri Jan 26 14:34:53 2024
+//Date        : Tue Jan 30 14:03:39 2024
 //Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
 //Command     : generate_target processor_design_2_wrapper.bd
 //Design      : processor_design_2_wrapper
@@ -31,7 +31,10 @@ module processor_design_2_wrapper
     FIXED_IO_mio,
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
-    FIXED_IO_ps_srstb);
+    FIXED_IO_ps_srstb,
+    btns_4bits_tri_i,
+    leds_4bits_tri_o,
+    sws_4bits_tri_i);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -53,6 +56,9 @@ module processor_design_2_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
+  input [3:0]btns_4bits_tri_i;
+  output [3:0]leds_4bits_tri_o;
+  input [3:0]sws_4bits_tri_i;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -75,6 +81,9 @@ module processor_design_2_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
+  wire [3:0]btns_4bits_tri_i;
+  wire [3:0]leds_4bits_tri_o;
+  wire [3:0]sws_4bits_tri_i;
 
   processor_design_2 processor_design_2_i
        (.DDR_addr(DDR_addr),
@@ -97,5 +106,8 @@ module processor_design_2_wrapper
         .FIXED_IO_mio(FIXED_IO_mio),
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
-        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb));
+        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .btns_4bits_tri_i(btns_4bits_tri_i),
+        .leds_4bits_tri_o(leds_4bits_tri_o),
+        .sws_4bits_tri_i(sws_4bits_tri_i));
 endmodule

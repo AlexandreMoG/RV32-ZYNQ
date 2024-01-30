@@ -42,3 +42,7 @@
 - Recherches pour faire fonctionner les transactions sur le BUS AXI
 - Validation du test qui permet d'interfacer avec la mémoire du PS : MORAL
 - Ajout de constantes dans le bloc design pour supprimer les warning du PCPI et de l'IRQ du picorv32 : MORAL
+29/01/24
+- Recherche interfaçage picorv32 - GPIO : GUICHETEAU
+- Implémentation interface picorv32 - GPIO : GUICHETEAU MORAL
+- Ecriture de documentation sur le fonctionnement du bloc GPIO AXI : MORAL
