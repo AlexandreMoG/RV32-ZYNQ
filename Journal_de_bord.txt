@@ -46,3 +46,7 @@
 - Recherche interfaçage picorv32 - GPIO : GUICHETEAU
 - Implémentation interface picorv32 - GPIO : GUICHETEAU MORAL
 - Ecriture de documentation sur le fonctionnement du bloc GPIO AXI : MORAL
+30/01/24
+- Ajout fichier test .coe gpio LED : MORAL - ASSIER
+31/01/24
+- Ajout fichier test .coe bouttons swicth : ASSIER - MORAL
