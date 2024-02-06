@@ -191,24 +191,6 @@
             "V3": {
                 "VT": "AC",
                 "BA": "0x00000000",
-                "HA": "0x00001FFF",
-                "BP": "C_S_AXI_BASEADDR",
-                "HP": "C_S_AXI_HIGHADDR",
-                "MA": "mem_axi",
-                "MX": "/picorv32_axi_0",
-                "MI": "mem_axi",
-                "MS": "SEG_axi_bram_ctrl_0_Mem0",
-                "MV": "xilinx.com:user:picorv32_axi:1.0",
-                "SX": "/axi_bram_ctrl_0",
-                "SI": "S_AXI",
-                "SS": "Mem0",
-                "SV": "xilinx.com:ip:axi_bram_ctrl:4.1",
-                "TM": "both",
-                "TU": "memory"
-            },
-            "V4": {
-                "VT": "AC",
-                "BA": "0x20000000",
                 "HA": "0x3FFFFFFF",
                 "BP": "C_BASEADDR",
                 "HP": "C_HIGHADDR",
@@ -224,7 +206,7 @@
                 "TM": "both",
                 "TU": "memory"
             },
-            "V5": {
+            "V4": {
                 "VT": "AC",
                 "BA": "0x40000000",
                 "HA": "0x4000FFFF",
@@ -242,7 +224,7 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V6": {
+            "V5": {
                 "VT": "AC",
                 "BA": "0x40010000",
                 "HA": "0x4001FFFF",
@@ -251,32 +233,32 @@
                 "MA": "mem_axi",
                 "MX": "/picorv32_axi_0",
                 "MI": "mem_axi",
-                "MS": "SEG_axi_gpio_leds_Reg",
+                "MS": "SEG_axi_gpio_sws_leds_Reg",
                 "MV": "xilinx.com:user:picorv32_axi:1.0",
-                "SX": "/axi_gpio_leds",
+                "SX": "/axi_gpio_sws_leds",
                 "SI": "S_AXI",
                 "SS": "Reg",
                 "SV": "xilinx.com:ip:axi_gpio:2.0",
                 "TM": "both",
                 "TU": "register"
             },
-            "V7": {
+            "V6": {
                 "VT": "AC",
-                "BA": "0x40020000",
-                "HA": "0x4002FFFF",
-                "BP": "C_BASEADDR",
-                "HP": "C_HIGHADDR",
+                "BA": "0xC0000000",
+                "HA": "0xC0001FFF",
+                "BP": "C_S_AXI_BASEADDR",
+                "HP": "C_S_AXI_HIGHADDR",
                 "MA": "mem_axi",
                 "MX": "/picorv32_axi_0",
                 "MI": "mem_axi",
-                "MS": "SEG_axi_gpio_sws_Reg",
+                "MS": "SEG_axi_bram_ctrl_0_Mem0",
                 "MV": "xilinx.com:user:picorv32_axi:1.0",
-                "SX": "/axi_gpio_sws",
+                "SX": "/axi_bram_ctrl_0",
                 "SI": "S_AXI",
-                "SS": "Reg",
-                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "SS": "Mem0",
+                "SV": "xilinx.com:ip:axi_bram_ctrl:4.1",
                 "TM": "both",
-                "TU": "register"
+                "TU": "memory"
             }
         },
         "edges": [
@@ -305,11 +287,6 @@
             },
             {
                 "src": "V6",
-                "trg": "V2",
-                "EH": "2"
-            },
-            {
-                "src": "V7",
                 "trg": "V2",
                 "EH": "2"
             }

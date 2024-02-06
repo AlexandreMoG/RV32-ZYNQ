@@ -104,11 +104,11 @@
         <CompFileExtendedInfo CompFileName="processor_design_2.bd" FileRelPathName="ip/processor_design_2_axi_gpio_0_2/processor_design_2_axi_gpio_0_2.xci">
           <Proxy FileSetName="processor_design_2_axi_gpio_0_2"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="processor_design_2.bd" FileRelPathName="ip/processor_design_2_axi_gpio_0_3/processor_design_2_axi_gpio_0_3.xci">
-          <Proxy FileSetName="processor_design_2_axi_gpio_0_3"/>
+        <CompFileExtendedInfo CompFileName="processor_design_2.bd" FileRelPathName="ip/processor_design_2_blk_mem_gen_0_0/processor_design_2_blk_mem_gen_0_0.xci">
+          <Proxy FileSetName="processor_design_2_blk_mem_gen_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="processor_design_2.bd" FileRelPathName="ip/processor_design_2_axi_gpio_1_0/processor_design_2_axi_gpio_1_0.xci">
-          <Proxy FileSetName="processor_design_2_axi_gpio_1_0"/>
+        <CompFileExtendedInfo CompFileName="processor_design_2.bd" FileRelPathName="ip/processor_design_2_picorv32_axi_0_0/processor_design_2_picorv32_axi_0_0.xci">
+          <Proxy FileSetName="processor_design_2_picorv32_axi_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="processor_design_2.bd" FileRelPathName="ip/processor_design_2_processing_system7_0_0/processor_design_2_processing_system7_0_0.xci">
           <Proxy FileSetName="processor_design_2_processing_system7_0_0"/>
@@ -119,6 +119,14 @@
       </File>
       <File Path="$PGENDIR/sources_1/bd/processor_design_2/hdl/processor_design_2_wrapper.v">
         <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../picorv32.v">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -161,22 +169,8 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../picorv32.v">
-        <FileInfo>
-          <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PPRDIR/../../../../../AppData/Roaming/Xilinx/ip_repo/component.xml">
         <FileInfo SFType="IPXACT"/>
-      </File>
-      <File Path="$PPRDIR/../test/test.coe">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
       </File>
       <File Path="$PPRDIR/../test/test_memory_p1_loop.coe">
         <FileInfo>
@@ -298,15 +292,15 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="processor_design_2_axi_gpio_0_3" Type="BlockSrcs" RelSrcDir="$PSRCDIR/processor_design_2_axi_gpio_0_3" RelGenDir="$PGENDIR/processor_design_2_axi_gpio_0_3">
+    <FileSet Name="processor_design_2_picorv32_axi_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/processor_design_2_picorv32_axi_0_0" RelGenDir="$PGENDIR/processor_design_2_picorv32_axi_0_0">
       <Config>
-        <Option Name="TopModule" Val="processor_design_2_axi_gpio_0_3"/>
+        <Option Name="TopModule" Val="processor_design_2_picorv32_axi_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="processor_design_2_axi_gpio_1_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/processor_design_2_axi_gpio_1_0" RelGenDir="$PGENDIR/processor_design_2_axi_gpio_1_0">
+    <FileSet Name="processor_design_2_blk_mem_gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/processor_design_2_blk_mem_gen_0_0" RelGenDir="$PGENDIR/processor_design_2_blk_mem_gen_0_0">
       <Config>
-        <Option Name="TopModule" Val="processor_design_2_axi_gpio_1_0"/>
+        <Option Name="TopModule" Val="processor_design_2_blk_mem_gen_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -442,9 +436,7 @@
     </Run>
     <Run Id="processor_design_2_axi_gpio_0_2_synth_1" Type="Ft3:Synth" SrcSet="processor_design_2_axi_gpio_0_2" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_axi_gpio_0_2" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/processor_design_2_axi_gpio_0_2_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_0_2_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_0_2_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -452,11 +444,9 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="processor_design_2_axi_gpio_0_3_synth_1" Type="Ft3:Synth" SrcSet="processor_design_2_axi_gpio_0_3" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_axi_gpio_0_3" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/processor_design_2_axi_gpio_0_3_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_0_3_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_0_3_synth_1">
+    <Run Id="processor_design_2_picorv32_axi_0_0_synth_1" Type="Ft3:Synth" SrcSet="processor_design_2_picorv32_axi_0_0" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_picorv32_axi_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/processor_design_2_picorv32_axi_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_picorv32_axi_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_picorv32_axi_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -464,7 +454,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="processor_design_2_axi_gpio_1_0_synth_1" Type="Ft3:Synth" SrcSet="processor_design_2_axi_gpio_1_0" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_axi_gpio_1_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/processor_design_2_axi_gpio_1_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_1_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_1_0_synth_1">
+    <Run Id="processor_design_2_blk_mem_gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="processor_design_2_blk_mem_gen_0_0" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_blk_mem_gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/processor_design_2_blk_mem_gen_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_blk_mem_gen_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_blk_mem_gen_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2023">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -666,9 +656,7 @@
     </Run>
     <Run Id="processor_design_2_axi_gpio_0_2_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_axi_gpio_0_2" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="processor_design_2_axi_gpio_0_2_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_0_2_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_0_2_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -683,11 +671,9 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="processor_design_2_axi_gpio_0_3_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_axi_gpio_0_3" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="processor_design_2_axi_gpio_0_3_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_0_3_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_0_3_impl_1">
+    <Run Id="processor_design_2_picorv32_axi_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_picorv32_axi_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="processor_design_2_picorv32_axi_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_picorv32_axi_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_picorv32_axi_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -702,7 +688,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="processor_design_2_axi_gpio_1_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_axi_gpio_1_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="processor_design_2_axi_gpio_1_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_1_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_axi_gpio_1_0_impl_1">
+    <Run Id="processor_design_2_blk_mem_gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="processor_design_2_blk_mem_gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="processor_design_2_blk_mem_gen_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/processor_design_2_blk_mem_gen_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/processor_design_2_blk_mem_gen_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
           <Desc>Default settings for Implementation.</Desc>
