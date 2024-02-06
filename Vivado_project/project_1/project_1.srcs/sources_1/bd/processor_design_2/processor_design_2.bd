@@ -7,7 +7,8 @@
       "name": "processor_design_2",
       "rev_ctrl_bd_flag": "RevCtrlBdOff",
       "synth_flow_mode": "Hierarchical",
-      "tool_version": "2023.2"
+      "tool_version": "2023.2",
+      "validated": "true"
     },
     "design_tree": {
       "processing_system7_0": "",
@@ -1939,7 +1940,7 @@
             "value": "false"
           },
           "Coe_File": {
-            "value": "../../../../../../../test/test_memory_p1_loop.coe"
+            "value": "../../../../../../../test/test_gpio_switch.coe"
           },
           "Load_Init_File": {
             "value": "true"
