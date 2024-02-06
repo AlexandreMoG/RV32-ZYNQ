@@ -2,11 +2,11 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Thu Jan 11 13:12:51 2024
+-- Date        : Tue Feb  6 16:06:11 2024
 -- Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top processor_design_2_picorv32_axi_0_0 -prefix
---               processor_design_2_picorv32_axi_0_0_ processor_design_picorv32_axi_0_0_sim_netlist.vhdl
--- Design      : processor_design_picorv32_axi_0_0
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/Alexandre/Desktop/git/RV32-ZYNQ/Vivado_project/project_1/project_1.gen/sources_1/bd/processor_design_2/ip/processor_design_2_picorv32_axi_0_0/processor_design_2_picorv32_axi_0_0_sim_netlist.vhdl
+-- Design      : processor_design_2_picorv32_axi_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7z020clg400-1
@@ -97,6 +97,8 @@ entity processor_design_2_picorv32_axi_0_0_picorv32 is
     mem_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     mem_valid_reg_1 : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of processor_design_2_picorv32_axi_0_0_picorv32 : entity is "picorv32";
 end processor_design_2_picorv32_axi_0_0_picorv32;
 
 architecture STRUCTURE of processor_design_2_picorv32_axi_0_0_picorv32 is
@@ -13373,21 +13375,21 @@ mem_valid_reg: unisim.vcomponents.FDRE
       Q => \reg_next_pc_reg_n_0_[2]\,
       R => trap_i_1_n_0
     );
-\reg_next_pc_reg[30]\: unisim.vcomponents.FDRE
+\reg_next_pc_reg[30]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => \^q\(4),
       D => reg_next_pc1_in(30),
       Q => \reg_next_pc_reg_n_0_[30]\,
-      R => trap_i_1_n_0
+      S => trap_i_1_n_0
     );
-\reg_next_pc_reg[31]\: unisim.vcomponents.FDRE
+\reg_next_pc_reg[31]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => \^q\(4),
       D => reg_next_pc1_in(31),
       Q => \reg_next_pc_reg_n_0_[31]\,
-      R => trap_i_1_n_0
+      S => trap_i_1_n_0
     );
 \reg_next_pc_reg[31]_i_1\: unisim.vcomponents.CARRY4
      port map (
@@ -19831,21 +19833,21 @@ mem_valid_reg: unisim.vcomponents.FDRE
       Q => \reg_pc_reg_n_0_[2]\,
       R => trap_i_1_n_0
     );
-\reg_pc_reg[30]\: unisim.vcomponents.FDRE
+\reg_pc_reg[30]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => \^q\(4),
       D => current_pc(30),
       Q => \reg_pc_reg_n_0_[30]\,
-      R => trap_i_1_n_0
+      S => trap_i_1_n_0
     );
-\reg_pc_reg[31]\: unisim.vcomponents.FDRE
+\reg_pc_reg[31]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => \^q\(4),
       D => current_pc(31),
       Q => \reg_pc_reg_n_0_[31]\,
-      R => trap_i_1_n_0
+      S => trap_i_1_n_0
     );
 \reg_pc_reg[3]\: unisim.vcomponents.FDRE
      port map (
@@ -20154,6 +20156,8 @@ entity processor_design_2_picorv32_axi_0_0_picorv32_axi_adapter is
     mem_axi_arready : in STD_LOGIC;
     mem_axi_wready : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of processor_design_2_picorv32_axi_0_0_picorv32_axi_adapter : entity is "picorv32_axi_adapter";
 end processor_design_2_picorv32_axi_0_0_picorv32_axi_adapter;
 
 architecture STRUCTURE of processor_design_2_picorv32_axi_0_0_picorv32_axi_adapter is
@@ -20271,6 +20275,8 @@ entity processor_design_2_picorv32_axi_0_0_picorv32_axi is
     mem_axi_wready : in STD_LOGIC;
     mem_axi_rdata : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of processor_design_2_picorv32_axi_0_0_picorv32_axi : entity is "picorv32_axi";
 end processor_design_2_picorv32_axi_0_0_picorv32_axi;
 
 architecture STRUCTURE of processor_design_2_picorv32_axi_0_0_picorv32_axi is
@@ -20639,7 +20645,7 @@ entity processor_design_2_picorv32_axi_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of processor_design_2_picorv32_axi_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of processor_design_2_picorv32_axi_0_0 : entity is "processor_design_picorv32_axi_0_0,picorv32_axi,{}";
+  attribute CHECK_LICENSE_TYPE of processor_design_2_picorv32_axi_0_0 : entity is "processor_design_2_picorv32_axi_0_0,picorv32_axi,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of processor_design_2_picorv32_axi_0_0 : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;
@@ -20655,7 +20661,7 @@ architecture STRUCTURE of processor_design_2_picorv32_axi_0_0 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF mem_axi, ASSOCIATED_RESET resetn, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN processor_design_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF mem_axi, ASSOCIATED_RESET resetn, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of mem_axi_arready : signal is "xilinx.com:interface:aximm:1.0 mem_axi ARREADY";
   attribute X_INTERFACE_INFO of mem_axi_arvalid : signal is "xilinx.com:interface:aximm:1.0 mem_axi ARVALID";
   attribute X_INTERFACE_INFO of mem_axi_awready : signal is "xilinx.com:interface:aximm:1.0 mem_axi AWREADY";
@@ -20675,7 +20681,7 @@ architecture STRUCTURE of processor_design_2_picorv32_axi_0_0 is
   attribute X_INTERFACE_INFO of mem_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 mem_axi AWADDR";
   attribute X_INTERFACE_INFO of mem_axi_awprot : signal is "xilinx.com:interface:aximm:1.0 mem_axi AWPROT";
   attribute X_INTERFACE_INFO of mem_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 mem_axi RDATA";
-  attribute X_INTERFACE_PARAMETER of mem_axi_rdata : signal is "XIL_INTERFACENAME mem_axi, DATA_WIDTH 32, PROTOCOL AXI4LITE, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 0, HAS_RRESP 0, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of mem_axi_rdata : signal is "XIL_INTERFACENAME mem_axi, DATA_WIDTH 32, PROTOCOL AXI4LITE, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 0, HAS_RRESP 0, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of mem_axi_wdata : signal is "xilinx.com:interface:aximm:1.0 mem_axi WDATA";
   attribute X_INTERFACE_INFO of mem_axi_wstrb : signal is "xilinx.com:interface:aximm:1.0 mem_axi WSTRB";
 begin
