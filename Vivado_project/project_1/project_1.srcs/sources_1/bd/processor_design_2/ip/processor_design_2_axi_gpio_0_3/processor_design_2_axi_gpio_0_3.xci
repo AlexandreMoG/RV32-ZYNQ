@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "processor_design_2_axi_gpio_0_3",
-    "cell_name": "axi_gpio_sws",
+    "cell_name": "axi_gpio_btns",
     "component_reference": "xilinx.com:ip:axi_gpio:2.0",
     "ip_revision": "31",
     "gen_directory": "../../../../../../project_1.gen/sources_1/bd/processor_design_2/ip/processor_design_2_axi_gpio_0_3",
@@ -20,7 +20,7 @@
         "C_INTERRUPT_PRESENT": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "processor_design_2_axi_gpio_0_3", "resolve_type": "user", "usage": "all" } ],
         "USE_BOARD_FLOW": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
-        "GPIO_BOARD_INTERFACE": [ { "value": "sws_4bits", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+        "GPIO_BOARD_INTERFACE": [ { "value": "btns_4bits", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "GPIO2_BOARD_INTERFACE": [ { "value": "Custom", "resolve_type": "user", "usage": "all" } ],
         "C_ALL_OUTPUTS": [ { "value": "0", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "C_ALL_OUTPUTS_2": [ { "value": "0", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ]

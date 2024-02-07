@@ -2,17 +2,251 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-// Date        : Thu Jan 11 13:12:50 2024
+// Date        : Tue Feb  6 16:06:11 2024
 // Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top processor_design_2_picorv32_axi_0_0 -prefix
-//               processor_design_2_picorv32_axi_0_0_ processor_design_picorv32_axi_0_0_sim_netlist.v
-// Design      : processor_design_picorv32_axi_0_0
+// Command     : write_verilog -force -mode funcsim
+//               c:/Users/Alexandre/Desktop/git/RV32-ZYNQ/Vivado_project/project_1/project_1.gen/sources_1/bd/processor_design_2/ip/processor_design_2_picorv32_axi_0_0/processor_design_2_picorv32_axi_0_0_sim_netlist.v
+// Design      : processor_design_2_picorv32_axi_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7z020clg400-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
+(* CHECK_LICENSE_TYPE = "processor_design_2_picorv32_axi_0_0,picorv32_axi,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
+(* X_CORE_INFO = "picorv32_axi,Vivado 2023.2" *) 
+(* NotValidForBitStream *)
+module processor_design_2_picorv32_axi_0_0
+   (clk,
+    resetn,
+    trap,
+    mem_axi_awvalid,
+    mem_axi_awready,
+    mem_axi_awaddr,
+    mem_axi_awprot,
+    mem_axi_wvalid,
+    mem_axi_wready,
+    mem_axi_wdata,
+    mem_axi_wstrb,
+    mem_axi_bvalid,
+    mem_axi_bready,
+    mem_axi_arvalid,
+    mem_axi_arready,
+    mem_axi_araddr,
+    mem_axi_arprot,
+    mem_axi_rvalid,
+    mem_axi_rready,
+    mem_axi_rdata,
+    pcpi_valid,
+    pcpi_insn,
+    pcpi_rs1,
+    pcpi_rs2,
+    pcpi_wr,
+    pcpi_rd,
+    pcpi_wait,
+    pcpi_ready,
+    irq,
+    eoi,
+    trace_valid,
+    trace_data);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF mem_axi, ASSOCIATED_RESET resetn, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
+  output trap;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi AWVALID" *) output mem_axi_awvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi AWREADY" *) input mem_axi_awready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi AWADDR" *) output [31:0]mem_axi_awaddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi AWPROT" *) output [2:0]mem_axi_awprot;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi WVALID" *) output mem_axi_wvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi WREADY" *) input mem_axi_wready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi WDATA" *) output [31:0]mem_axi_wdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi WSTRB" *) output [3:0]mem_axi_wstrb;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi BVALID" *) input mem_axi_bvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi BREADY" *) output mem_axi_bready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi ARVALID" *) output mem_axi_arvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi ARREADY" *) input mem_axi_arready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi ARADDR" *) output [31:0]mem_axi_araddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi ARPROT" *) output [2:0]mem_axi_arprot;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi RVALID" *) input mem_axi_rvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi RREADY" *) output mem_axi_rready;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi RDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME mem_axi, DATA_WIDTH 32, PROTOCOL AXI4LITE, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 0, HAS_RRESP 0, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [31:0]mem_axi_rdata;
+  output pcpi_valid;
+  output [31:0]pcpi_insn;
+  output [31:0]pcpi_rs1;
+  output [31:0]pcpi_rs2;
+  input pcpi_wr;
+  input [31:0]pcpi_rd;
+  input pcpi_wait;
+  input pcpi_ready;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 irq INTERRUPT" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME irq, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) input [31:0]irq;
+  output [31:0]eoi;
+  output trace_valid;
+  output [35:0]trace_data;
+
+  wire \<const0> ;
+  wire clk;
+  wire [2:2]\^mem_axi_arprot ;
+  wire mem_axi_arready;
+  wire mem_axi_arvalid;
+  wire [31:2]\^mem_axi_awaddr ;
+  wire mem_axi_awready;
+  wire mem_axi_awvalid;
+  wire mem_axi_bready;
+  wire mem_axi_bvalid;
+  wire [31:0]mem_axi_rdata;
+  wire mem_axi_rready;
+  wire mem_axi_rvalid;
+  wire [31:0]mem_axi_wdata;
+  wire mem_axi_wready;
+  wire [3:0]mem_axi_wstrb;
+  wire mem_axi_wvalid;
+  wire [31:0]pcpi_rs1;
+  wire [31:0]pcpi_rs2;
+  wire resetn;
+  wire trap;
+
+  assign eoi[31] = \<const0> ;
+  assign eoi[30] = \<const0> ;
+  assign eoi[29] = \<const0> ;
+  assign eoi[28] = \<const0> ;
+  assign eoi[27] = \<const0> ;
+  assign eoi[26] = \<const0> ;
+  assign eoi[25] = \<const0> ;
+  assign eoi[24] = \<const0> ;
+  assign eoi[23] = \<const0> ;
+  assign eoi[22] = \<const0> ;
+  assign eoi[21] = \<const0> ;
+  assign eoi[20] = \<const0> ;
+  assign eoi[19] = \<const0> ;
+  assign eoi[18] = \<const0> ;
+  assign eoi[17] = \<const0> ;
+  assign eoi[16] = \<const0> ;
+  assign eoi[15] = \<const0> ;
+  assign eoi[14] = \<const0> ;
+  assign eoi[13] = \<const0> ;
+  assign eoi[12] = \<const0> ;
+  assign eoi[11] = \<const0> ;
+  assign eoi[10] = \<const0> ;
+  assign eoi[9] = \<const0> ;
+  assign eoi[8] = \<const0> ;
+  assign eoi[7] = \<const0> ;
+  assign eoi[6] = \<const0> ;
+  assign eoi[5] = \<const0> ;
+  assign eoi[4] = \<const0> ;
+  assign eoi[3] = \<const0> ;
+  assign eoi[2] = \<const0> ;
+  assign eoi[1] = \<const0> ;
+  assign eoi[0] = \<const0> ;
+  assign mem_axi_araddr[31:2] = \^mem_axi_awaddr [31:2];
+  assign mem_axi_araddr[1] = \<const0> ;
+  assign mem_axi_araddr[0] = \<const0> ;
+  assign mem_axi_arprot[2] = \^mem_axi_arprot [2];
+  assign mem_axi_arprot[1] = \<const0> ;
+  assign mem_axi_arprot[0] = \<const0> ;
+  assign mem_axi_awaddr[31:2] = \^mem_axi_awaddr [31:2];
+  assign mem_axi_awaddr[1] = \<const0> ;
+  assign mem_axi_awaddr[0] = \<const0> ;
+  assign mem_axi_awprot[2] = \<const0> ;
+  assign mem_axi_awprot[1] = \<const0> ;
+  assign mem_axi_awprot[0] = \<const0> ;
+  assign pcpi_insn[31] = \<const0> ;
+  assign pcpi_insn[30] = \<const0> ;
+  assign pcpi_insn[29] = \<const0> ;
+  assign pcpi_insn[28] = \<const0> ;
+  assign pcpi_insn[27] = \<const0> ;
+  assign pcpi_insn[26] = \<const0> ;
+  assign pcpi_insn[25] = \<const0> ;
+  assign pcpi_insn[24] = \<const0> ;
+  assign pcpi_insn[23] = \<const0> ;
+  assign pcpi_insn[22] = \<const0> ;
+  assign pcpi_insn[21] = \<const0> ;
+  assign pcpi_insn[20] = \<const0> ;
+  assign pcpi_insn[19] = \<const0> ;
+  assign pcpi_insn[18] = \<const0> ;
+  assign pcpi_insn[17] = \<const0> ;
+  assign pcpi_insn[16] = \<const0> ;
+  assign pcpi_insn[15] = \<const0> ;
+  assign pcpi_insn[14] = \<const0> ;
+  assign pcpi_insn[13] = \<const0> ;
+  assign pcpi_insn[12] = \<const0> ;
+  assign pcpi_insn[11] = \<const0> ;
+  assign pcpi_insn[10] = \<const0> ;
+  assign pcpi_insn[9] = \<const0> ;
+  assign pcpi_insn[8] = \<const0> ;
+  assign pcpi_insn[7] = \<const0> ;
+  assign pcpi_insn[6] = \<const0> ;
+  assign pcpi_insn[5] = \<const0> ;
+  assign pcpi_insn[4] = \<const0> ;
+  assign pcpi_insn[3] = \<const0> ;
+  assign pcpi_insn[2] = \<const0> ;
+  assign pcpi_insn[1] = \<const0> ;
+  assign pcpi_insn[0] = \<const0> ;
+  assign pcpi_valid = \<const0> ;
+  assign trace_data[35] = \<const0> ;
+  assign trace_data[34] = \<const0> ;
+  assign trace_data[33] = \<const0> ;
+  assign trace_data[32] = \<const0> ;
+  assign trace_data[31] = \<const0> ;
+  assign trace_data[30] = \<const0> ;
+  assign trace_data[29] = \<const0> ;
+  assign trace_data[28] = \<const0> ;
+  assign trace_data[27] = \<const0> ;
+  assign trace_data[26] = \<const0> ;
+  assign trace_data[25] = \<const0> ;
+  assign trace_data[24] = \<const0> ;
+  assign trace_data[23] = \<const0> ;
+  assign trace_data[22] = \<const0> ;
+  assign trace_data[21] = \<const0> ;
+  assign trace_data[20] = \<const0> ;
+  assign trace_data[19] = \<const0> ;
+  assign trace_data[18] = \<const0> ;
+  assign trace_data[17] = \<const0> ;
+  assign trace_data[16] = \<const0> ;
+  assign trace_data[15] = \<const0> ;
+  assign trace_data[14] = \<const0> ;
+  assign trace_data[13] = \<const0> ;
+  assign trace_data[12] = \<const0> ;
+  assign trace_data[11] = \<const0> ;
+  assign trace_data[10] = \<const0> ;
+  assign trace_data[9] = \<const0> ;
+  assign trace_data[8] = \<const0> ;
+  assign trace_data[7] = \<const0> ;
+  assign trace_data[6] = \<const0> ;
+  assign trace_data[5] = \<const0> ;
+  assign trace_data[4] = \<const0> ;
+  assign trace_data[3] = \<const0> ;
+  assign trace_data[2] = \<const0> ;
+  assign trace_data[1] = \<const0> ;
+  assign trace_data[0] = \<const0> ;
+  assign trace_valid = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
+  processor_design_2_picorv32_axi_0_0_picorv32_axi inst
+       (.clk(clk),
+        .mem_axi_arprot(\^mem_axi_arprot ),
+        .mem_axi_arready(mem_axi_arready),
+        .mem_axi_arvalid(mem_axi_arvalid),
+        .mem_axi_awaddr(\^mem_axi_awaddr ),
+        .mem_axi_awready(mem_axi_awready),
+        .mem_axi_awvalid(mem_axi_awvalid),
+        .mem_axi_bready(mem_axi_bready),
+        .mem_axi_bvalid(mem_axi_bvalid),
+        .mem_axi_rdata(mem_axi_rdata),
+        .mem_axi_rready(mem_axi_rready),
+        .mem_axi_rvalid(mem_axi_rvalid),
+        .mem_axi_wdata(mem_axi_wdata),
+        .mem_axi_wready(mem_axi_wready),
+        .mem_axi_wvalid(mem_axi_wvalid),
+        .\mem_wstrb_reg[0] (mem_axi_wstrb[0]),
+        .\mem_wstrb_reg[1] (mem_axi_wstrb[1]),
+        .\mem_wstrb_reg[2] (mem_axi_wstrb[2]),
+        .\mem_wstrb_reg[3] (mem_axi_wstrb[3]),
+        .pcpi_rs1(pcpi_rs1),
+        .pcpi_rs2(pcpi_rs2),
+        .resetn(resetn),
+        .trap(trap));
+endmodule
+
+(* ORIG_REF_NAME = "picorv32" *) 
 module processor_design_2_picorv32_axi_0_0_picorv32
    (E,
     instr_sub,
@@ -10179,18 +10413,18 @@ module processor_design_2_picorv32_axi_0_0_picorv32
         .D(reg_next_pc1_in[2]),
         .Q(\reg_next_pc_reg_n_0_[2] ),
         .R(trap_i_1_n_0));
-  FDRE \reg_next_pc_reg[30] 
+  FDSE \reg_next_pc_reg[30] 
        (.C(clk),
         .CE(Q[4]),
         .D(reg_next_pc1_in[30]),
         .Q(\reg_next_pc_reg_n_0_[30] ),
-        .R(trap_i_1_n_0));
-  FDRE \reg_next_pc_reg[31] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_next_pc_reg[31] 
        (.C(clk),
         .CE(Q[4]),
         .D(reg_next_pc1_in[31]),
         .Q(\reg_next_pc_reg_n_0_[31] ),
-        .R(trap_i_1_n_0));
+        .S(trap_i_1_n_0));
   (* ADDER_THRESHOLD = "35" *) 
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-8 {cell *THIS*}}" *) 
   CARRY4 \reg_next_pc_reg[31]_i_1 
@@ -14962,18 +15196,18 @@ module processor_design_2_picorv32_axi_0_0_picorv32
         .D(current_pc[2]),
         .Q(\reg_pc_reg_n_0_[2] ),
         .R(trap_i_1_n_0));
-  FDRE \reg_pc_reg[30] 
+  FDSE \reg_pc_reg[30] 
        (.C(clk),
         .CE(Q[4]),
         .D(current_pc[30]),
         .Q(\reg_pc_reg_n_0_[30] ),
-        .R(trap_i_1_n_0));
-  FDRE \reg_pc_reg[31] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_pc_reg[31] 
        (.C(clk),
         .CE(Q[4]),
         .D(current_pc[31]),
         .Q(\reg_pc_reg_n_0_[31] ),
-        .R(trap_i_1_n_0));
+        .S(trap_i_1_n_0));
   FDRE \reg_pc_reg[3] 
        (.C(clk),
         .CE(Q[4]),
@@ -15194,6 +15428,7 @@ module processor_design_2_picorv32_axi_0_0_picorv32
         .O(mem_valid_reg_0));
 endmodule
 
+(* ORIG_REF_NAME = "picorv32_axi" *) 
 module processor_design_2_picorv32_axi_0_0_picorv32_axi
    (mem_axi_rready,
     \mem_wstrb_reg[2] ,
@@ -15539,6 +15774,7 @@ module processor_design_2_picorv32_axi_0_0_picorv32_axi
         .xfer_done(xfer_done));
 endmodule
 
+(* ORIG_REF_NAME = "picorv32_axi_adapter" *) 
 module processor_design_2_picorv32_axi_0_0_picorv32_axi_adapter
    (xfer_done,
     ack_awvalid,
@@ -15638,239 +15874,6 @@ module processor_design_2_picorv32_axi_0_0_picorv32_axi_adapter
         .D(xfer_done_reg_0),
         .Q(xfer_done),
         .R(1'b0));
-endmodule
-
-(* CHECK_LICENSE_TYPE = "processor_design_picorv32_axi_0_0,picorv32_axi,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "package_project" *) 
-(* X_CORE_INFO = "picorv32_axi,Vivado 2023.2" *) 
-(* NotValidForBitStream *)
-module processor_design_2_picorv32_axi_0_0
-   (clk,
-    resetn,
-    trap,
-    mem_axi_awvalid,
-    mem_axi_awready,
-    mem_axi_awaddr,
-    mem_axi_awprot,
-    mem_axi_wvalid,
-    mem_axi_wready,
-    mem_axi_wdata,
-    mem_axi_wstrb,
-    mem_axi_bvalid,
-    mem_axi_bready,
-    mem_axi_arvalid,
-    mem_axi_arready,
-    mem_axi_araddr,
-    mem_axi_arprot,
-    mem_axi_rvalid,
-    mem_axi_rready,
-    mem_axi_rdata,
-    pcpi_valid,
-    pcpi_insn,
-    pcpi_rs1,
-    pcpi_rs2,
-    pcpi_wr,
-    pcpi_rd,
-    pcpi_wait,
-    pcpi_ready,
-    irq,
-    eoi,
-    trace_valid,
-    trace_data);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF mem_axi, ASSOCIATED_RESET resetn, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN processor_design_processing_system7_0_0_FCLK_CLK0, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
-  output trap;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi AWVALID" *) output mem_axi_awvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi AWREADY" *) input mem_axi_awready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi AWADDR" *) output [31:0]mem_axi_awaddr;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi AWPROT" *) output [2:0]mem_axi_awprot;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi WVALID" *) output mem_axi_wvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi WREADY" *) input mem_axi_wready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi WDATA" *) output [31:0]mem_axi_wdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi WSTRB" *) output [3:0]mem_axi_wstrb;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi BVALID" *) input mem_axi_bvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi BREADY" *) output mem_axi_bready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi ARVALID" *) output mem_axi_arvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi ARREADY" *) input mem_axi_arready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi ARADDR" *) output [31:0]mem_axi_araddr;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi ARPROT" *) output [2:0]mem_axi_arprot;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi RVALID" *) input mem_axi_rvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi RREADY" *) output mem_axi_rready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 mem_axi RDATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME mem_axi, DATA_WIDTH 32, PROTOCOL AXI4LITE, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 0, HAS_RRESP 0, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [31:0]mem_axi_rdata;
-  output pcpi_valid;
-  output [31:0]pcpi_insn;
-  output [31:0]pcpi_rs1;
-  output [31:0]pcpi_rs2;
-  input pcpi_wr;
-  input [31:0]pcpi_rd;
-  input pcpi_wait;
-  input pcpi_ready;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:interrupt:1.0 irq INTERRUPT" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME irq, SENSITIVITY LEVEL_HIGH, PortWidth 1" *) input [31:0]irq;
-  output [31:0]eoi;
-  output trace_valid;
-  output [35:0]trace_data;
-
-  wire \<const0> ;
-  wire clk;
-  wire [2:2]\^mem_axi_arprot ;
-  wire mem_axi_arready;
-  wire mem_axi_arvalid;
-  wire [31:2]\^mem_axi_awaddr ;
-  wire mem_axi_awready;
-  wire mem_axi_awvalid;
-  wire mem_axi_bready;
-  wire mem_axi_bvalid;
-  wire [31:0]mem_axi_rdata;
-  wire mem_axi_rready;
-  wire mem_axi_rvalid;
-  wire [31:0]mem_axi_wdata;
-  wire mem_axi_wready;
-  wire [3:0]mem_axi_wstrb;
-  wire mem_axi_wvalid;
-  wire [31:0]pcpi_rs1;
-  wire [31:0]pcpi_rs2;
-  wire resetn;
-  wire trap;
-
-  assign eoi[31] = \<const0> ;
-  assign eoi[30] = \<const0> ;
-  assign eoi[29] = \<const0> ;
-  assign eoi[28] = \<const0> ;
-  assign eoi[27] = \<const0> ;
-  assign eoi[26] = \<const0> ;
-  assign eoi[25] = \<const0> ;
-  assign eoi[24] = \<const0> ;
-  assign eoi[23] = \<const0> ;
-  assign eoi[22] = \<const0> ;
-  assign eoi[21] = \<const0> ;
-  assign eoi[20] = \<const0> ;
-  assign eoi[19] = \<const0> ;
-  assign eoi[18] = \<const0> ;
-  assign eoi[17] = \<const0> ;
-  assign eoi[16] = \<const0> ;
-  assign eoi[15] = \<const0> ;
-  assign eoi[14] = \<const0> ;
-  assign eoi[13] = \<const0> ;
-  assign eoi[12] = \<const0> ;
-  assign eoi[11] = \<const0> ;
-  assign eoi[10] = \<const0> ;
-  assign eoi[9] = \<const0> ;
-  assign eoi[8] = \<const0> ;
-  assign eoi[7] = \<const0> ;
-  assign eoi[6] = \<const0> ;
-  assign eoi[5] = \<const0> ;
-  assign eoi[4] = \<const0> ;
-  assign eoi[3] = \<const0> ;
-  assign eoi[2] = \<const0> ;
-  assign eoi[1] = \<const0> ;
-  assign eoi[0] = \<const0> ;
-  assign mem_axi_araddr[31:2] = \^mem_axi_awaddr [31:2];
-  assign mem_axi_araddr[1] = \<const0> ;
-  assign mem_axi_araddr[0] = \<const0> ;
-  assign mem_axi_arprot[2] = \^mem_axi_arprot [2];
-  assign mem_axi_arprot[1] = \<const0> ;
-  assign mem_axi_arprot[0] = \<const0> ;
-  assign mem_axi_awaddr[31:2] = \^mem_axi_awaddr [31:2];
-  assign mem_axi_awaddr[1] = \<const0> ;
-  assign mem_axi_awaddr[0] = \<const0> ;
-  assign mem_axi_awprot[2] = \<const0> ;
-  assign mem_axi_awprot[1] = \<const0> ;
-  assign mem_axi_awprot[0] = \<const0> ;
-  assign pcpi_insn[31] = \<const0> ;
-  assign pcpi_insn[30] = \<const0> ;
-  assign pcpi_insn[29] = \<const0> ;
-  assign pcpi_insn[28] = \<const0> ;
-  assign pcpi_insn[27] = \<const0> ;
-  assign pcpi_insn[26] = \<const0> ;
-  assign pcpi_insn[25] = \<const0> ;
-  assign pcpi_insn[24] = \<const0> ;
-  assign pcpi_insn[23] = \<const0> ;
-  assign pcpi_insn[22] = \<const0> ;
-  assign pcpi_insn[21] = \<const0> ;
-  assign pcpi_insn[20] = \<const0> ;
-  assign pcpi_insn[19] = \<const0> ;
-  assign pcpi_insn[18] = \<const0> ;
-  assign pcpi_insn[17] = \<const0> ;
-  assign pcpi_insn[16] = \<const0> ;
-  assign pcpi_insn[15] = \<const0> ;
-  assign pcpi_insn[14] = \<const0> ;
-  assign pcpi_insn[13] = \<const0> ;
-  assign pcpi_insn[12] = \<const0> ;
-  assign pcpi_insn[11] = \<const0> ;
-  assign pcpi_insn[10] = \<const0> ;
-  assign pcpi_insn[9] = \<const0> ;
-  assign pcpi_insn[8] = \<const0> ;
-  assign pcpi_insn[7] = \<const0> ;
-  assign pcpi_insn[6] = \<const0> ;
-  assign pcpi_insn[5] = \<const0> ;
-  assign pcpi_insn[4] = \<const0> ;
-  assign pcpi_insn[3] = \<const0> ;
-  assign pcpi_insn[2] = \<const0> ;
-  assign pcpi_insn[1] = \<const0> ;
-  assign pcpi_insn[0] = \<const0> ;
-  assign pcpi_valid = \<const0> ;
-  assign trace_data[35] = \<const0> ;
-  assign trace_data[34] = \<const0> ;
-  assign trace_data[33] = \<const0> ;
-  assign trace_data[32] = \<const0> ;
-  assign trace_data[31] = \<const0> ;
-  assign trace_data[30] = \<const0> ;
-  assign trace_data[29] = \<const0> ;
-  assign trace_data[28] = \<const0> ;
-  assign trace_data[27] = \<const0> ;
-  assign trace_data[26] = \<const0> ;
-  assign trace_data[25] = \<const0> ;
-  assign trace_data[24] = \<const0> ;
-  assign trace_data[23] = \<const0> ;
-  assign trace_data[22] = \<const0> ;
-  assign trace_data[21] = \<const0> ;
-  assign trace_data[20] = \<const0> ;
-  assign trace_data[19] = \<const0> ;
-  assign trace_data[18] = \<const0> ;
-  assign trace_data[17] = \<const0> ;
-  assign trace_data[16] = \<const0> ;
-  assign trace_data[15] = \<const0> ;
-  assign trace_data[14] = \<const0> ;
-  assign trace_data[13] = \<const0> ;
-  assign trace_data[12] = \<const0> ;
-  assign trace_data[11] = \<const0> ;
-  assign trace_data[10] = \<const0> ;
-  assign trace_data[9] = \<const0> ;
-  assign trace_data[8] = \<const0> ;
-  assign trace_data[7] = \<const0> ;
-  assign trace_data[6] = \<const0> ;
-  assign trace_data[5] = \<const0> ;
-  assign trace_data[4] = \<const0> ;
-  assign trace_data[3] = \<const0> ;
-  assign trace_data[2] = \<const0> ;
-  assign trace_data[1] = \<const0> ;
-  assign trace_data[0] = \<const0> ;
-  assign trace_valid = \<const0> ;
-  GND GND
-       (.G(\<const0> ));
-  processor_design_2_picorv32_axi_0_0_picorv32_axi inst
-       (.clk(clk),
-        .mem_axi_arprot(\^mem_axi_arprot ),
-        .mem_axi_arready(mem_axi_arready),
-        .mem_axi_arvalid(mem_axi_arvalid),
-        .mem_axi_awaddr(\^mem_axi_awaddr ),
-        .mem_axi_awready(mem_axi_awready),
-        .mem_axi_awvalid(mem_axi_awvalid),
-        .mem_axi_bready(mem_axi_bready),
-        .mem_axi_bvalid(mem_axi_bvalid),
-        .mem_axi_rdata(mem_axi_rdata),
-        .mem_axi_rready(mem_axi_rready),
-        .mem_axi_rvalid(mem_axi_rvalid),
-        .mem_axi_wdata(mem_axi_wdata),
-        .mem_axi_wready(mem_axi_wready),
-        .mem_axi_wvalid(mem_axi_wvalid),
-        .\mem_wstrb_reg[0] (mem_axi_wstrb[0]),
-        .\mem_wstrb_reg[1] (mem_axi_wstrb[1]),
-        .\mem_wstrb_reg[2] (mem_axi_wstrb[2]),
-        .\mem_wstrb_reg[3] (mem_axi_wstrb[3]),
-        .pcpi_rs1(pcpi_rs1),
-        .pcpi_rs2(pcpi_rs2),
-        .resetn(resetn),
-        .trap(trap));
 endmodule
 `ifndef GLBL
 `define GLBL
