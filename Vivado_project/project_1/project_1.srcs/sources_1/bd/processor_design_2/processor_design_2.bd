@@ -1927,7 +1927,18 @@
         "ip_revision": "9",
         "xci_name": "processor_design_2_axi_bram_ctrl_0_0",
         "xci_path": "ip\\processor_design_2_axi_bram_ctrl_0_0\\processor_design_2_axi_bram_ctrl_0_0.xci",
-        "inst_hier_path": "axi_bram_ctrl_0"
+        "inst_hier_path": "axi_bram_ctrl_0",
+        "parameters": {
+          "DATA_WIDTH": {
+            "value": "32"
+          },
+          "PROTOCOL": {
+            "value": "AXI4"
+          },
+          "SINGLE_PORT_BRAM": {
+            "value": "0"
+          }
+        }
       },
       "blk_mem_gen_0": {
         "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
@@ -2841,14 +2852,14 @@
     "interface_nets": {
       "axi_bram_ctrl_0_BRAM_PORTA": {
         "interface_ports": [
-          "blk_mem_gen_0/BRAM_PORTA",
-          "axi_bram_ctrl_0/BRAM_PORTA"
+          "axi_bram_ctrl_0/BRAM_PORTA",
+          "blk_mem_gen_0/BRAM_PORTA"
         ]
       },
       "axi_bram_ctrl_0_BRAM_PORTB": {
         "interface_ports": [
-          "blk_mem_gen_0/BRAM_PORTB",
-          "axi_bram_ctrl_0/BRAM_PORTB"
+          "axi_bram_ctrl_0/BRAM_PORTB",
+          "blk_mem_gen_0/BRAM_PORTB"
         ]
       },
       "axi_gpio_btns_GPIO": {
@@ -2981,7 +2992,7 @@
               "SEG_axi_bram_ctrl_0_Mem0": {
                 "address_block": "/axi_bram_ctrl_0/S_AXI/Mem0",
                 "offset": "0xC0000000",
-                "range": "8K"
+                "range": "64K"
               },
               "SEG_axi_gpio_btns_Reg": {
                 "address_block": "/axi_gpio_btns/S_AXI/Reg",

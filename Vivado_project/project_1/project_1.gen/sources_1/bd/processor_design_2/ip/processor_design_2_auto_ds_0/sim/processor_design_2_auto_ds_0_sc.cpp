@@ -64,7 +64,7 @@ processor_design_2_auto_ds_0_sc::processor_design_2_auto_ds_0_sc(const sc_core::
     model_param_props.addLong("C_AXI_PROTOCOL", "2");
     model_param_props.addLong("C_S_AXI_ID_WIDTH", "1");
     model_param_props.addLong("C_SUPPORTS_ID", "0");
-    model_param_props.addLong("C_AXI_ADDR_WIDTH", "13");
+    model_param_props.addLong("C_AXI_ADDR_WIDTH", "16");
     model_param_props.addLong("C_S_AXI_DATA_WIDTH", "64");
     model_param_props.addLong("C_M_AXI_DATA_WIDTH", "32");
     model_param_props.addLong("C_AXI_SUPPORTS_WRITE", "1");

@@ -2,10 +2,10 @@
 -- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
--- Date        : Tue Jan 23 14:52:07 2024
+-- Date        : Thu Feb  8 14:27:21 2024
 -- Host        : DESKTOP-G3EET83 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top processor_design_2_auto_ds_0 -prefix
---               processor_design_2_auto_ds_0_ processor_design_2_auto_ds_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/Alexandre/Desktop/git/RV32-ZYNQ/Vivado_project/project_1/project_1.gen/sources_1/bd/processor_design_2/ip/processor_design_2_auto_ds_0/processor_design_2_auto_ds_0_sim_netlist.vhdl
 -- Design      : processor_design_2_auto_ds_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -31,8 +31,8 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsi
     s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    m_axi_araddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
-    s_axi_awaddr : in STD_LOGIC_VECTOR ( 12 downto 0 );
+    m_axi_araddr : out STD_LOGIC_VECTOR ( 15 downto 0 );
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_wstrb : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_wdata : in STD_LOGIC_VECTOR ( 63 downto 0 );
     m_axi_awready : in STD_LOGIC;
@@ -50,8 +50,10 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsi
     m_axi_rvalid : in STD_LOGIC;
     s_axi_awvalid : in STD_LOGIC;
     s_axi_wvalid : in STD_LOGIC;
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 12 downto 0 )
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsizer : entity is "axi_dwidth_converter_v2_1_29_axi4lite_downsizer";
 end processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsizer;
 
 architecture STRUCTURE of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_axi4lite_downsizer is
@@ -129,16 +131,18 @@ architecture STRUCTURE of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1
   attribute SOFT_HLUTNM of \gen_write.m_axi_wvalid_i_i_2\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \gen_write.s_axi_awready_i_i_3\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \gen_write.split_aw_i_3\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \m_axi_araddr[10]_INST_0\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \m_axi_araddr[11]_INST_0\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \m_axi_araddr[12]_INST_0\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \m_axi_araddr[3]_INST_0\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \m_axi_araddr[4]_INST_0\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \m_axi_araddr[5]_INST_0\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \m_axi_araddr[6]_INST_0\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \m_axi_araddr[7]_INST_0\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \m_axi_araddr[8]_INST_0\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \m_axi_araddr[9]_INST_0\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \m_axi_araddr[10]_INST_0\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \m_axi_araddr[11]_INST_0\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \m_axi_araddr[12]_INST_0\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \m_axi_araddr[13]_INST_0\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \m_axi_araddr[14]_INST_0\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \m_axi_araddr[15]_INST_0\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \m_axi_araddr[4]_INST_0\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \m_axi_araddr[5]_INST_0\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \m_axi_araddr[6]_INST_0\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \m_axi_araddr[7]_INST_0\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \m_axi_araddr[8]_INST_0\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \m_axi_araddr[9]_INST_0\ : label is "soft_lutpair25";
   attribute SOFT_HLUTNM of \s_axi_bresp[0]_INST_0\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \s_axi_bresp[1]_INST_0\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \s_axi_rdata[0]_INST_0\ : label is "soft_lutpair21";
@@ -1181,6 +1185,36 @@ begin
       I2 => s_axi_awaddr(12),
       O => m_axi_araddr(12)
     );
+\m_axi_araddr[13]_INST_0\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => s_axi_araddr(13),
+      I1 => \gen_read.ar_start_reg_n_0\,
+      I2 => s_axi_awaddr(13),
+      O => m_axi_araddr(13)
+    );
+\m_axi_araddr[14]_INST_0\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => s_axi_araddr(14),
+      I1 => \gen_read.ar_start_reg_n_0\,
+      I2 => s_axi_awaddr(14),
+      O => m_axi_araddr(14)
+    );
+\m_axi_araddr[15]_INST_0\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"B8"
+    )
+        port map (
+      I0 => s_axi_araddr(15),
+      I1 => \gen_read.ar_start_reg_n_0\,
+      I2 => s_axi_awaddr(15),
+      O => m_axi_araddr(15)
+    );
 \m_axi_araddr[1]_INST_0\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0002000200030000"
@@ -2141,7 +2175,7 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top is
     s_axi_aclk : in STD_LOGIC;
     s_axi_aresetn : in STD_LOGIC;
     s_axi_awid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_awaddr : in STD_LOGIC_VECTOR ( 12 downto 0 );
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_awlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_awsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2162,7 +2196,7 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top is
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
     s_axi_arid : in STD_LOGIC_VECTOR ( 0 to 0 );
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 12 downto 0 );
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_arlen : in STD_LOGIC_VECTOR ( 7 downto 0 );
     s_axi_arsize : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_arburst : in STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2181,7 +2215,7 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top is
     s_axi_rready : in STD_LOGIC;
     m_axi_aclk : in STD_LOGIC;
     m_axi_aresetn : in STD_LOGIC;
-    m_axi_awaddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
+    m_axi_awaddr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m_axi_awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_awburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2200,7 +2234,7 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top is
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_bvalid : in STD_LOGIC;
     m_axi_bready : out STD_LOGIC;
-    m_axi_araddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
+    m_axi_araddr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m_axi_arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     m_axi_arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_arburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -2218,7 +2252,7 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top is
     m_axi_rready : out STD_LOGIC
   );
   attribute C_AXI_ADDR_WIDTH : integer;
-  attribute C_AXI_ADDR_WIDTH of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is 13;
+  attribute C_AXI_ADDR_WIDTH of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is 16;
   attribute C_AXI_IS_ACLK_ASYNC : integer;
   attribute C_AXI_IS_ACLK_ASYNC of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is 0;
   attribute C_AXI_PROTOCOL : integer;
@@ -2259,6 +2293,8 @@ entity processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top is
   attribute C_S_AXI_ID_WIDTH of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is 1;
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is "yes";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is "axi_dwidth_converter_v2_1_29_top";
   attribute P_AXI3 : integer;
   attribute P_AXI3 of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top : entity is 1;
   attribute P_AXI4 : integer;
@@ -2273,7 +2309,7 @@ end processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top;
 
 architecture STRUCTURE of processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top is
   signal \<const0>\ : STD_LOGIC;
-  signal \^m_axi_araddr\ : STD_LOGIC_VECTOR ( 12 downto 0 );
+  signal \^m_axi_araddr\ : STD_LOGIC_VECTOR ( 15 downto 0 );
   signal \^m_axi_rdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \^s_axi_arprot\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \^s_axi_awprot\ : STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -2288,7 +2324,7 @@ begin
   \^m_axi_rdata\(31 downto 0) <= m_axi_rdata(31 downto 0);
   \^s_axi_arprot\(2 downto 0) <= s_axi_arprot(2 downto 0);
   \^s_axi_awprot\(2 downto 0) <= s_axi_awprot(2 downto 0);
-  m_axi_araddr(12 downto 0) <= \^m_axi_araddr\(12 downto 0);
+  m_axi_araddr(15 downto 0) <= \^m_axi_araddr\(15 downto 0);
   m_axi_arburst(1) <= \<const0>\;
   m_axi_arburst(0) <= \<const0>\;
   m_axi_arcache(3) <= \<const0>\;
@@ -2316,7 +2352,7 @@ begin
   m_axi_arsize(2) <= \<const0>\;
   m_axi_arsize(1) <= \<const0>\;
   m_axi_arsize(0) <= \<const0>\;
-  m_axi_awaddr(12 downto 0) <= \^m_axi_araddr\(12 downto 0);
+  m_axi_awaddr(15 downto 0) <= \^m_axi_araddr\(15 downto 0);
   m_axi_awburst(1) <= \<const0>\;
   m_axi_awburst(0) <= \<const0>\;
   m_axi_awcache(3) <= \<const0>\;
@@ -2366,7 +2402,7 @@ GND: unisim.vcomponents.GND
       \gen_write.m_axi_wvalid_i_reg_0\ => m_axi_wvalid,
       \gen_write.s_axi_awready_i_reg_0\ => \^s_axi_awready\,
       \gen_write.s_axi_bvalid_i_reg_0\ => s_axi_bvalid,
-      m_axi_araddr(12 downto 0) => \^m_axi_araddr\(12 downto 0),
+      m_axi_araddr(15 downto 0) => \^m_axi_araddr\(15 downto 0),
       m_axi_arready => m_axi_arready,
       m_axi_awready => m_axi_awready,
       m_axi_bready => m_axi_bready,
@@ -2380,9 +2416,9 @@ GND: unisim.vcomponents.GND
       m_axi_wready => m_axi_wready,
       m_axi_wstrb(3 downto 0) => m_axi_wstrb(3 downto 0),
       \out\ => s_axi_aresetn,
-      s_axi_araddr(12 downto 0) => s_axi_araddr(12 downto 0),
+      s_axi_araddr(15 downto 0) => s_axi_araddr(15 downto 0),
       s_axi_arvalid => s_axi_arvalid,
-      s_axi_awaddr(12 downto 0) => s_axi_awaddr(12 downto 0),
+      s_axi_awaddr(15 downto 0) => s_axi_awaddr(15 downto 0),
       s_axi_awvalid => s_axi_awvalid,
       s_axi_bready => s_axi_bready,
       s_axi_bresp(1 downto 0) => s_axi_bresp(1 downto 0),
@@ -2402,7 +2438,7 @@ entity processor_design_2_auto_ds_0 is
   port (
     s_axi_aclk : in STD_LOGIC;
     s_axi_aresetn : in STD_LOGIC;
-    s_axi_awaddr : in STD_LOGIC_VECTOR ( 12 downto 0 );
+    s_axi_awaddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_awprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awvalid : in STD_LOGIC;
     s_axi_awready : out STD_LOGIC;
@@ -2413,7 +2449,7 @@ entity processor_design_2_auto_ds_0 is
     s_axi_bresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_bvalid : out STD_LOGIC;
     s_axi_bready : in STD_LOGIC;
-    s_axi_araddr : in STD_LOGIC_VECTOR ( 12 downto 0 );
+    s_axi_araddr : in STD_LOGIC_VECTOR ( 15 downto 0 );
     s_axi_arprot : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_arvalid : in STD_LOGIC;
     s_axi_arready : out STD_LOGIC;
@@ -2421,7 +2457,7 @@ entity processor_design_2_auto_ds_0 is
     s_axi_rresp : out STD_LOGIC_VECTOR ( 1 downto 0 );
     s_axi_rvalid : out STD_LOGIC;
     s_axi_rready : in STD_LOGIC;
-    m_axi_awaddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
+    m_axi_awaddr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m_axi_awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_awvalid : out STD_LOGIC;
     m_axi_awready : in STD_LOGIC;
@@ -2432,7 +2468,7 @@ entity processor_design_2_auto_ds_0 is
     m_axi_bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     m_axi_bvalid : in STD_LOGIC;
     m_axi_bready : out STD_LOGIC;
-    m_axi_araddr : out STD_LOGIC_VECTOR ( 12 downto 0 );
+    m_axi_araddr : out STD_LOGIC_VECTOR ( 15 downto 0 );
     m_axi_arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
     m_axi_arvalid : out STD_LOGIC;
     m_axi_arready : in STD_LOGIC;
@@ -2471,7 +2507,7 @@ architecture STRUCTURE of processor_design_2_auto_ds_0 is
   signal NLW_inst_s_axi_bid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   signal NLW_inst_s_axi_rid_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
   attribute C_AXI_ADDR_WIDTH : integer;
-  attribute C_AXI_ADDR_WIDTH of inst : label is 13;
+  attribute C_AXI_ADDR_WIDTH of inst : label is 16;
   attribute C_AXI_IS_ACLK_ASYNC : integer;
   attribute C_AXI_IS_ACLK_ASYNC of inst : label is 0;
   attribute C_AXI_PROTOCOL : integer;
@@ -2530,7 +2566,7 @@ architecture STRUCTURE of processor_design_2_auto_ds_0 is
   attribute X_INTERFACE_INFO of m_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI BVALID";
   attribute X_INTERFACE_INFO of m_axi_rready : signal is "xilinx.com:interface:aximm:1.0 M_AXI RREADY";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 13, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of m_axi_rready : signal is "XIL_INTERFACENAME M_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 16, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of m_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI RVALID";
   attribute X_INTERFACE_INFO of m_axi_wready : signal is "xilinx.com:interface:aximm:1.0 M_AXI WREADY";
   attribute X_INTERFACE_INFO of m_axi_wvalid : signal is "xilinx.com:interface:aximm:1.0 M_AXI WVALID";
@@ -2545,7 +2581,7 @@ architecture STRUCTURE of processor_design_2_auto_ds_0 is
   attribute X_INTERFACE_INFO of s_axi_bready : signal is "xilinx.com:interface:aximm:1.0 S_AXI BREADY";
   attribute X_INTERFACE_INFO of s_axi_bvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI BVALID";
   attribute X_INTERFACE_INFO of s_axi_rready : signal is "xilinx.com:interface:aximm:1.0 S_AXI RREADY";
-  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 64, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 13, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of s_axi_rready : signal is "XIL_INTERFACENAME S_AXI, DATA_WIDTH 64, PROTOCOL AXI4LITE, FREQ_HZ 50000000, ID_WIDTH 0, ADDR_WIDTH 16, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN processor_design_2_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of s_axi_rvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI RVALID";
   attribute X_INTERFACE_INFO of s_axi_wready : signal is "xilinx.com:interface:aximm:1.0 S_AXI WREADY";
   attribute X_INTERFACE_INFO of s_axi_wvalid : signal is "xilinx.com:interface:aximm:1.0 S_AXI WVALID";
@@ -2571,7 +2607,7 @@ begin
 inst: entity work.processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top
      port map (
       m_axi_aclk => '0',
-      m_axi_araddr(12 downto 0) => m_axi_araddr(12 downto 0),
+      m_axi_araddr(15 downto 0) => m_axi_araddr(15 downto 0),
       m_axi_arburst(1 downto 0) => NLW_inst_m_axi_arburst_UNCONNECTED(1 downto 0),
       m_axi_arcache(3 downto 0) => NLW_inst_m_axi_arcache_UNCONNECTED(3 downto 0),
       m_axi_aresetn => '0',
@@ -2583,7 +2619,7 @@ inst: entity work.processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top
       m_axi_arregion(3 downto 0) => NLW_inst_m_axi_arregion_UNCONNECTED(3 downto 0),
       m_axi_arsize(2 downto 0) => NLW_inst_m_axi_arsize_UNCONNECTED(2 downto 0),
       m_axi_arvalid => m_axi_arvalid,
-      m_axi_awaddr(12 downto 0) => m_axi_awaddr(12 downto 0),
+      m_axi_awaddr(15 downto 0) => m_axi_awaddr(15 downto 0),
       m_axi_awburst(1 downto 0) => NLW_inst_m_axi_awburst_UNCONNECTED(1 downto 0),
       m_axi_awcache(3 downto 0) => NLW_inst_m_axi_awcache_UNCONNECTED(3 downto 0),
       m_axi_awlen(7 downto 0) => NLW_inst_m_axi_awlen_UNCONNECTED(7 downto 0),
@@ -2608,7 +2644,7 @@ inst: entity work.processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top
       m_axi_wstrb(3 downto 0) => m_axi_wstrb(3 downto 0),
       m_axi_wvalid => m_axi_wvalid,
       s_axi_aclk => s_axi_aclk,
-      s_axi_araddr(12 downto 0) => s_axi_araddr(12 downto 0),
+      s_axi_araddr(15 downto 0) => s_axi_araddr(15 downto 0),
       s_axi_arburst(1 downto 0) => B"01",
       s_axi_arcache(3 downto 0) => B"0000",
       s_axi_aresetn => s_axi_aresetn,
@@ -2621,7 +2657,7 @@ inst: entity work.processor_design_2_auto_ds_0_axi_dwidth_converter_v2_1_29_top
       s_axi_arregion(3 downto 0) => B"0000",
       s_axi_arsize(2 downto 0) => B"000",
       s_axi_arvalid => s_axi_arvalid,
-      s_axi_awaddr(12 downto 0) => s_axi_awaddr(12 downto 0),
+      s_axi_awaddr(15 downto 0) => s_axi_awaddr(15 downto 0),
       s_axi_awburst(1 downto 0) => B"01",
       s_axi_awcache(3 downto 0) => B"0000",
       s_axi_awid(0) => '0',

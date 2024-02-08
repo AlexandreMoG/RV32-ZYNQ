@@ -245,7 +245,7 @@
             "V6": {
                 "VT": "AC",
                 "BA": "0xC0000000",
-                "HA": "0xC0001FFF",
+                "HA": "0xC000FFFF",
                 "BP": "C_S_AXI_BASEADDR",
                 "HP": "C_S_AXI_HIGHADDR",
                 "MA": "mem_axi",

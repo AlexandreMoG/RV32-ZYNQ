@@ -55,3 +55,6 @@
 - Augmentation de la DDR accessible
 - Optimisation des AXI GPIO (suppression d'un, les leds et sws sont sur le même AXI GPIO désormais)
 - Test ASM lisibles, testés et validés
+07-08/02/24
+- Test linker et cross compilation
+- Augmentation bram 

@@ -82,7 +82,7 @@ public:
 
   sc_core::sc_in< bool > s_axi_aclk;
   sc_core::sc_in< bool > s_axi_aresetn;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_awaddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_awlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_awsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_awburst;
@@ -99,7 +99,7 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > s_axi_bresp;
   sc_core::sc_out< bool > s_axi_bvalid;
   sc_core::sc_in< bool > s_axi_bready;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_araddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_arlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_arsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_arburst;
@@ -117,14 +117,14 @@ public:
   sc_core::sc_out< bool > bram_clk_a;
   sc_core::sc_out< bool > bram_en_a;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_a;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_a;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_a;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_a;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_a;
   sc_core::sc_out< bool > bram_rst_b;
   sc_core::sc_out< bool > bram_clk_b;
   sc_core::sc_out< bool > bram_en_b;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_b;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_b;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_b;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_b;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_b;
 
@@ -137,7 +137,7 @@ protected:
 
 private:
 
-  xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>* mp_S_AXI_transactor;
+  xtlm::xaximm_pin2xtlm_t<32,16,1,1,1,1,1,1>* mp_S_AXI_transactor;
 
 };
 #endif // XILINX_SIMULATOR
@@ -157,7 +157,7 @@ public:
 
   sc_core::sc_in< bool > s_axi_aclk;
   sc_core::sc_in< bool > s_axi_aresetn;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_awaddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_awlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_awsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_awburst;
@@ -174,7 +174,7 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > s_axi_bresp;
   sc_core::sc_out< bool > s_axi_bvalid;
   sc_core::sc_in< bool > s_axi_bready;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_araddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_arlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_arsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_arburst;
@@ -192,14 +192,14 @@ public:
   sc_core::sc_out< bool > bram_clk_a;
   sc_core::sc_out< bool > bram_en_a;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_a;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_a;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_a;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_a;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_a;
   sc_core::sc_out< bool > bram_rst_b;
   sc_core::sc_out< bool > bram_clk_b;
   sc_core::sc_out< bool > bram_en_b;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_b;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_b;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_b;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_b;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_b;
 
@@ -212,7 +212,7 @@ protected:
 
 private:
 
-  xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>* mp_S_AXI_transactor;
+  xtlm::xaximm_pin2xtlm_t<32,16,1,1,1,1,1,1>* mp_S_AXI_transactor;
 
 };
 #endif // XM_SYSTEMC
@@ -232,7 +232,7 @@ public:
 
   sc_core::sc_in< bool > s_axi_aclk;
   sc_core::sc_in< bool > s_axi_aresetn;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_awaddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_awlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_awsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_awburst;
@@ -249,7 +249,7 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > s_axi_bresp;
   sc_core::sc_out< bool > s_axi_bvalid;
   sc_core::sc_in< bool > s_axi_bready;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_araddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_arlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_arsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_arburst;
@@ -267,14 +267,14 @@ public:
   sc_core::sc_out< bool > bram_clk_a;
   sc_core::sc_out< bool > bram_en_a;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_a;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_a;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_a;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_a;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_a;
   sc_core::sc_out< bool > bram_rst_b;
   sc_core::sc_out< bool > bram_clk_b;
   sc_core::sc_out< bool > bram_en_b;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_b;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_b;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_b;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_b;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_b;
 
@@ -287,7 +287,7 @@ protected:
 
 private:
 
-  xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>* mp_S_AXI_transactor;
+  xtlm::xaximm_pin2xtlm_t<32,16,1,1,1,1,1,1>* mp_S_AXI_transactor;
 
 };
 #endif // RIVIERA
@@ -309,7 +309,7 @@ public:
 
   sc_core::sc_in< bool > s_axi_aclk;
   sc_core::sc_in< bool > s_axi_aresetn;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_awaddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_awlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_awsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_awburst;
@@ -326,7 +326,7 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > s_axi_bresp;
   sc_core::sc_out< bool > s_axi_bvalid;
   sc_core::sc_in< bool > s_axi_bready;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_araddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_arlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_arsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_arburst;
@@ -344,14 +344,14 @@ public:
   sc_core::sc_out< bool > bram_clk_a;
   sc_core::sc_out< bool > bram_en_a;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_a;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_a;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_a;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_a;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_a;
   sc_core::sc_out< bool > bram_rst_b;
   sc_core::sc_out< bool > bram_clk_b;
   sc_core::sc_out< bool > bram_en_b;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_b;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_b;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_b;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_b;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_b;
 
@@ -364,7 +364,7 @@ protected:
 
 private:
 
-  xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>* mp_S_AXI_transactor;
+  xtlm::xaximm_pin2xtlm_t<32,16,1,1,1,1,1,1>* mp_S_AXI_transactor;
 
   // Transactor stubs
   xtlm::xtlm_aximm_target_stub * S_AXI_transactor_target_rd_socket_stub;
@@ -392,7 +392,7 @@ public:
 
   sc_core::sc_in< bool > s_axi_aclk;
   sc_core::sc_in< bool > s_axi_aresetn;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_awaddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_awaddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_awlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_awsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_awburst;
@@ -409,7 +409,7 @@ public:
   sc_core::sc_out< sc_dt::sc_bv<2> > s_axi_bresp;
   sc_core::sc_out< bool > s_axi_bvalid;
   sc_core::sc_in< bool > s_axi_bready;
-  sc_core::sc_in< sc_dt::sc_bv<13> > s_axi_araddr;
+  sc_core::sc_in< sc_dt::sc_bv<16> > s_axi_araddr;
   sc_core::sc_in< sc_dt::sc_bv<8> > s_axi_arlen;
   sc_core::sc_in< sc_dt::sc_bv<3> > s_axi_arsize;
   sc_core::sc_in< sc_dt::sc_bv<2> > s_axi_arburst;
@@ -427,14 +427,14 @@ public:
   sc_core::sc_out< bool > bram_clk_a;
   sc_core::sc_out< bool > bram_en_a;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_a;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_a;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_a;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_a;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_a;
   sc_core::sc_out< bool > bram_rst_b;
   sc_core::sc_out< bool > bram_clk_b;
   sc_core::sc_out< bool > bram_en_b;
   sc_core::sc_out< sc_dt::sc_bv<4> > bram_we_b;
-  sc_core::sc_out< sc_dt::sc_bv<13> > bram_addr_b;
+  sc_core::sc_out< sc_dt::sc_bv<16> > bram_addr_b;
   sc_core::sc_out< sc_dt::sc_bv<32> > bram_wrdata_b;
   sc_core::sc_in< sc_dt::sc_bv<32> > bram_rddata_b;
 
@@ -447,7 +447,7 @@ protected:
 
 private:
 
-  xtlm::xaximm_pin2xtlm_t<32,13,1,1,1,1,1,1>* mp_S_AXI_transactor;
+  xtlm::xaximm_pin2xtlm_t<32,16,1,1,1,1,1,1>* mp_S_AXI_transactor;
 
   // Transactor stubs
   xtlm::xtlm_aximm_target_stub * S_AXI_transactor_target_rd_socket_stub;
