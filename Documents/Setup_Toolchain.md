@@ -49,10 +49,11 @@ Les deux makes font la même chose mais attention ils peuvent être très long �
 
 ## environnement
 
-Vous devez configurer le PATH avec la commande suivante dans $Home:
+Vous devez configurer le PATH avec la commande suivante :
 ```
-export PATH=$PATH:/opt/riscv32i
+export PATH=$PATH:/opt/riscv32i/bin
 ```
+Ca ne vaut que pour la session actuelle, pour le définir définitivement il faut rajouter le chemin dans le fichier bashrc dans /etc .
 
 ## commande
 Après ca vous pouvez utiliser la toolchain voici quelques commandes
@@ -60,17 +61,17 @@ Après ca vous pouvez utiliser la toolchain voici quelques commandes
 Compiler un programme :
 
 ```bash
-riscv32-unknown-elf-gcc -o hello hello.c
+riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32 -o hello hello.c
 ```
 
 
 ```bash
-riscv32-unknown-elf-gcc -o output_file.elf input_file.c
+riscv32-unknown-elf-gcc -march=rv32i -mabi=ilp32  -o output_file.elf input_file.c
 ```
 Assembleur : 
 
 ```bash
-riscv32-unknown-elf-as -o output_file.o input_file.S
+riscv32-unknown-elf-gcc  -march=rv32i -mabi=ilp32 -S -o  test.s test.c
 ```
 
 Linkage :
