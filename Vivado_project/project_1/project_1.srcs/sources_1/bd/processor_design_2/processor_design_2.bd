@@ -1951,7 +1951,7 @@
             "value": "false"
           },
           "Coe_File": {
-            "value": "../../../../../../../test/test_gpio_switch.coe"
+            "value": "../../../../../../../test/main.coe"
           },
           "Load_Init_File": {
             "value": "true"

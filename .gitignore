@@ -72,4 +72,7 @@ xvlog.*
 ## checkpoint files
 *.dcp
 
-
+## .o and .elf and .bin in the cross_compile folder
+cross_compile/*.o
+cross_compile/*.bin
+cross_compile/*.elf

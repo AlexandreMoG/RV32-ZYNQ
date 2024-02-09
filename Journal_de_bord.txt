@@ -51,10 +51,12 @@
 31/01/24
 - Ajout fichier test .coe bouttons swicth : ASSIER - MORAL
 06/02/24
-- Modification des addresses 
-- Augmentation de la DDR accessible
-- Optimisation des AXI GPIO (suppression d'un, les leds et sws sont sur le même AXI GPIO désormais)
-- Test ASM lisibles, testés et validés
+- Modification des addresses : MORAL
+- Augmentation de la DDR accessible : MORAL
+- Optimisation des AXI GPIO (suppression d'un, les leds et sws sont sur le même AXI GPIO désormais) : MORAL
+- Test ASM lisibles, testés et validés : MORAL
 07-08/02/24
-- Test linker et cross compilation
-- Augmentation bram 
+- Test linker et cross compilation : MORAL
+- Augmentation bram  : MORAL
+09/02/24
+- Push de la chaine de crosscompilation (pas encore validée) : MORAL
