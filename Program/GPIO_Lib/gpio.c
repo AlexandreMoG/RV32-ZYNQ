@@ -53,9 +53,9 @@ int read_switch(int i)
     return tri_data_sws;
 }
 
-void set_led(int i)
+void set_led(int i,int state)
 {
     if (i>31) return;
-    uint32_t data = (1 << i);
-    write_register(GPIO_SWS_LEDS+GPIO_2TRI_OFFSET,data);
+    uint32_t data = ( (state>0) << i);
+    write_register(GPIO_SWS_LEDS+GPIO_2DATA_OFFSET,data);
 }
