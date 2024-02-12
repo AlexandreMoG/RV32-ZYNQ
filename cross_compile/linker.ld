@@ -44,4 +44,16 @@ SECTIONS
         PROVIDE( __bss_end = . );
         PROVIDE( _end = . );
     } > RAM
+
+    /* Stack */
+    .stack (NOLOAD) :
+    {
+        . = ALIGN(8);
+        _estack = .;
+        . = . + STACK_SIZE;
+        . = ALIGN(8);
+        _sstack = .;
+    } > RAM
 }
+
+STACK_SIZE = 0x100000; /* 1 MB */

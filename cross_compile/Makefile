@@ -1,7 +1,7 @@
 CC = riscv32-unknown-elf-gcc
 OBJCOPY = riscv32-unknown-elf-objcopy
 LFLAGS = -Wl,-Tlinker.ld -Xlinker -Map=main.map
-CFLAGS = -march=rv32i -mabi=ilp32
+CFLAGS = -march=rv32i -mabi=ilp32 -nostartfiles
 SRC = main.c
 BIN2COE = bin2coe
 
@@ -10,7 +10,11 @@ MEMORY_WIDTH = 32
 
 default : main.coe
 
-main.elf : $(SRC)
+
+crt0.o : crt0.c
+	$(CC) -c $^ $@
+
+main.elf : crt0.o $(SRC) 
 	$(CC) $(CFLAGS) $^ -o $@ $(LFLAGS) 
 
 main.bin : main.elf

@@ -1951,7 +1951,7 @@
             "value": "false"
           },
           "Coe_File": {
-            "value": "../../../../../../../test/main.coe"
+            "value": "../../../../../../../../cross_compile/main.coe"
           },
           "Load_Init_File": {
             "value": "true"

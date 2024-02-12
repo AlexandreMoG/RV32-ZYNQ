@@ -60,3 +60,10 @@
 - Augmentation bram  : MORAL
 09/02/24
 - Push de la chaine de crosscompilation (pas encore validée) : MORAL
+12/02/24
+- Modif de la chaine de crosscompilation : (tout MORAL en dessous) 
+	- Ajout de crt0
+	- modif du linker
+	- ajout attribute crt0 pour mettre _start à l'addresse 0xc0000000
+	- Modif du stack pointer via la fonction _start (changer peut etre et mettre directement l'addresse dans le module verilog via Vivado ?)
+	- Validation d'une boucle while 1, a = a+1 
