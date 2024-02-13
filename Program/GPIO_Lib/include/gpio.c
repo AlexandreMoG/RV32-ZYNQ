@@ -50,7 +50,7 @@ void config_button(int i)
     tri_state_btns = read_register(GPIO_BUTTONS+GPIO_TRI_OFFSET);
     tri_state_btns = REP_BITS(tri_state_btns,i,1,INPUT);
     //Write to register
-    write_register(GPIO_SWS_LEDS+GPIO_TRI_OFFSET,tri_state_btns);
+    write_register(GPIO_BUTTONS+GPIO_TRI_OFFSET,tri_state_btns);
 }
 
 uint32_t read_switch(int i)
@@ -81,3 +81,4 @@ void set_led(int i,int state)
     uint32_t data = ( (state>0) << i);
     write_register(GPIO_SWS_LEDS+GPIO_2DATA_OFFSET,data);
 }
+

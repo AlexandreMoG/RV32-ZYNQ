@@ -25,7 +25,7 @@ uint32_t read_register(uint32_t address);
 void write_register(uint32_t address,uint32_t data);
 void config_led(int i);
 void config_switch(int i);
-void config_btns(int i);
+void config_button(int i);
 uint32_t read_switch(int i);
+uint32_t read_button(int i);
 void set_led(int i,int state);
-
