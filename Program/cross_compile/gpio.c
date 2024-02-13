@@ -15,7 +15,7 @@ void write_register(uint32_t address,uint32_t data)
     uint32_t reg;
     asm(    "sw %0, 0(%1);"
             :
-            : "=r;"(data), "=r"(address)
+            : "r"(data), "r"(address)
     );
 }
 

@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include "stdint.h"
 
 #define GPIO_DATA_OFFSET     0x0000
 #define GPIO_TRI_OFFSET      0x0004
@@ -22,4 +22,9 @@
 
 
 uint32_t read_register(uint32_t address);
-uint32_t write_register(uint32_t address,uint32_t data);
+void write_register(uint32_t address,uint32_t data);
+void config_led(int i);
+void config_switch(int i);
+int read_switch(int i);
+void set_led(int i,int state);
+
