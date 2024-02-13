@@ -47,6 +47,18 @@ make -j$(nproc) build-riscv32i-tools
 ```
 Les deux makes font la même chose mais attention ils peuvent être très long à éxecuter.
 
+## build recommandé
+
+Les autres version peuvent avoir des fichiers manquant, celle ci est recommandé.
+
+```
+git clone https://github.com/riscv/riscv-gnu-toolchain
+sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev
+cd riscv-gnu-toolchain
+sudo ./configure --with-arch=rv32i --prefix=/opt/riscv32i
+sudo make -j$(nproc)
+```
+
 ## environnement
 
 Vous devez configurer le PATH avec la commande suivante :
