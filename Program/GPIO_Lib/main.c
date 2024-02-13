@@ -1,6 +1,5 @@
 #include "gpio.h"
 
-
 int main()
 {
     config_switch(1); 

@@ -1,7 +1,7 @@
 CC = riscv32-unknown-elf-gcc
 OBJCOPY = riscv32-unknown-elf-objcopy
 LFLAGS = -Wl,-Tlinker.ld -Xlinker -Map=main.map
-CFLAGS = -march=rv32i -mabi=ilp32 -nostartfiles
+CFLAGS = -march=rv32i -mabi=ilp32 -nostartfiles -nostdlib
 SRC = gpio.c main.c
 BIN2COE = bin2coe
 
