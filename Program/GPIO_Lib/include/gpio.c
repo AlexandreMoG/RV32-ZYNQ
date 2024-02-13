@@ -15,7 +15,7 @@ void write_register(uint32_t address,uint32_t data)
     uint32_t reg;
     asm(    "sw %0, 0(%1);"
             :
-            : "=r;"(data), "=r"(address)
+            : "r"(data), "r"(address)
     );
 }
 
@@ -39,18 +39,40 @@ void config_switch(int i)
     tri_state_sws = read_register(GPIO_SWS_LEDS+GPIO_TRI_OFFSET);
     tri_state_sws = REP_BITS(tri_state_sws,i,1,INPUT);
     //Write to register
-    write_register(GPIO_SWS_LEDS+GPIO_2TRI_OFFSET,tri_state_sws);
+    write_register(GPIO_SWS_LEDS+GPIO_TRI_OFFSET,tri_state_sws);
 }
 
-int read_switch(int i)
+void config_button(int i)
 {
-    uint32_t tri_data_sws;
+    uint32_t tri_state_btns;
+    if (i>31) return;
+    //Read register
+    tri_state_btns = read_register(GPIO_BUTTONS+GPIO_TRI_OFFSET);
+    tri_state_btns = REP_BITS(tri_state_btns,i,1,INPUT);
+    //Write to register
+    write_register(GPIO_BUTTONS+GPIO_TRI_OFFSET,tri_state_btns);
+}
+
+uint32_t read_switch(int i)
+{
+    uint32_t data_sws;
     if (i>31) return -1;
     //Read register
-    tri_data_sws = read_register(GPIO_SWS_LEDS+GPIO_DATA_OFFSET);
-    tri_data_sws = GET_BITS(tri_data_sws,i,1);
+    data_sws = read_register(GPIO_SWS_LEDS+GPIO_DATA_OFFSET);
+    data_sws = GET_BITS(data_sws,i,1);
     //Write to register
-    return tri_data_sws;
+    return data_sws;
+}
+
+uint32_t read_button(int i)
+{
+    uint32_t data_btns;
+    if (i>31) return -1;
+    //Read register
+    data_btns = read_register(GPIO_BUTTONS+GPIO_DATA_OFFSET);
+    data_btns = GET_BITS(data_btns,i,1);
+    //Write to register
+    return data_btns;
 }
 
 void set_led(int i,int state)
@@ -59,3 +81,4 @@ void set_led(int i,int state)
     uint32_t data = ( (state>0) << i);
     write_register(GPIO_SWS_LEDS+GPIO_2DATA_OFFSET,data);
 }
+

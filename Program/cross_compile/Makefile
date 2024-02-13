@@ -2,14 +2,13 @@ CC = riscv32-unknown-elf-gcc
 OBJCOPY = riscv32-unknown-elf-objcopy
 LFLAGS = -Wl,-Tlinker.ld -Xlinker -Map=main.map
 CFLAGS = -march=rv32i -mabi=ilp32 -nostartfiles
-SRC = main.c
+SRC = gpio.c main.c
 BIN2COE = bin2coe
 
 MEMORY_WIDTH = 32
 
 
 default : main.coe
-
 
 crt0.o : crt0.c
 	$(CC) -c $^ $@

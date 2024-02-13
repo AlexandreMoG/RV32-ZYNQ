@@ -1,0 +1,93 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ROM              0xc0000000         0x00010000         axrl!w
+RAM              0x00000000         0x40000000         axw!rl
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD crt0.o
+LOAD /tmp/cc0wMSZ2.o
+LOAD /tmp/ccnbcstV.o
+
+.text           0xc0000000      0x3a8
+ crt0.o()
+ .text          0xc0000000       0x1c crt0.o
+                0xc0000000                _start
+ .data          0xc000001c        0x0 crt0.o
+ .bss           0xc000001c        0x0 crt0.o
+ .comment       0xc000001c       0x1b crt0.o
+                                 0x1c (size before relaxing)
+ .riscv.attributes
+                0xc0000037       0x1c crt0.o
+                0xc0000058                        . = ALIGN (0x8)
+ *fill*         0xc0000053        0x5 
+ *(.text)
+ .text          0xc0000058       0x40 /tmp/cc0wMSZ2.o
+                0xc0000058                main
+ .text          0xc0000098      0x310 /tmp/ccnbcstV.o
+                0xc0000098                read_register
+                0xc00000c8                write_register
+                0xc00000f8                config_led
+                0xc0000170                config_switch
+                0xc00001f8                config_button
+                0xc0000280                read_switch
+                0xc00002e0                read_button
+                0xc0000340                set_led
+ *(.text*)
+                0xc00003a8                        . = ALIGN (0x8)
+ *fill*         0xc00003a8        0x0 
+
+.data           0x00000000        0x0 load address 0xc00003a8
+                0x00000000                        . = ALIGN (0x8)
+                [!provide]                        PROVIDE (__global_pointer$ = .)
+ *(.data)
+ .data          0x00000000        0x0 /tmp/cc0wMSZ2.o
+ .data          0x00000000        0x0 /tmp/ccnbcstV.o
+
+.rodata         0xc00003a8        0x0
+                0xc00003a8                        . = ALIGN (0x8)
+ *(.rodata)
+ *(.rodata*)
+                0xc00003a8                        . = ALIGN (0x8)
+
+.bss            0x00000000        0x0
+                [!provide]                        PROVIDE (__bss_start = .)
+ *(.bss)
+ .bss           0x00000000        0x0 /tmp/cc0wMSZ2.o
+ .bss           0x00000000        0x0 /tmp/ccnbcstV.o
+ *(.bss*)
+                [!provide]                        PROVIDE (__bss_end = .)
+                [!provide]                        PROVIDE (_end = .)
+
+.stack          0x00000000   0x100000
+                0x00000000                        . = ALIGN (0x8)
+                0x00000000                        _estack = .
+                0x00100000                        . = (. + STACK_SIZE)
+ *fill*         0x00000000   0x100000 
+                0x00100000                        . = ALIGN (0x8)
+                0x00100000                        _sstack = .
+                0x00100000                        STACK_SIZE = 0x100000
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/13.2.0/libgcc.a
+START GROUP
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/libc.a
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/libgloss.a
+END GROUP
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/13.2.0/libgcc.a
+OUTPUT(elf_files/main.elf elf32-littleriscv)
+
+.comment        0x00000000       0x1b
+ .comment       0x00000000       0x1b /tmp/cc0wMSZ2.o
+                                 0x1c (size before relaxing)
+ .comment       0x0000001b       0x1c /tmp/ccnbcstV.o
+
+.riscv.attributes
+                0x00000000       0x1c
+ .riscv.attributes
+                0x00000000       0x1c /tmp/cc0wMSZ2.o
+ .riscv.attributes
+                0x0000001c       0x1c /tmp/ccnbcstV.o
