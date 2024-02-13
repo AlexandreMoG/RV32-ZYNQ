@@ -70,3 +70,4 @@
 - Creation de fonctions pour interagir avec le GPIO (a tester) : MORAL
 13/02/24
 - correction et test lib GPIO : ASSIER
+- Makefile pour cross compiler les tests et générer les coe elf et bin : MORAL
