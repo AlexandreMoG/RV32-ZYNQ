@@ -14,6 +14,7 @@ SECTIONS
 {
     /* Code */
     .text : { 
+        crt0.o
         . = ALIGN(8);
         *(.text) 
         *(.text*)
