@@ -68,3 +68,5 @@
 	- Modif du stack pointer via la fonction _start (changer peut etre et mettre directement l'addresse dans le module verilog via Vivado ?)
 	- Validation d'une boucle while 1, a = a+1 
 - Creation de fonctions pour interagir avec le GPIO (a tester) : MORAL
+13/02/24
+- correction et test lib GPIO : ASSIER
