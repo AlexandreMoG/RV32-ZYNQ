@@ -1,73 +1,64 @@
-02/01/2024
-- Installation de Vivado 2023.2 avec le support des boards ZYBO. : MORAL
-- Ajout des boards files contenant la Zybo Z7-20 : MORAL
-03/01/2024
-- Creation d'un projet vivado, packaging de l'IP picorv32_axi_0 et création d'un premier bloc design : MORAL
-04/01/2024
-- Recherches sur l'IP du ZYNQ, comment connecter le picorv32 à la mémoire du processeur : MORAL
-11/01/24
-- Réunion de projet : ALL
-- Découpe en tache : 
-	- Recherche AXI : Guicheteau
-	- Recherche PCPI, si on désactive : Assier
+Semaine 1 - Janvier 2024
+* Installation de Vivado 2023.2 avec le support des boards ZYBO. : MORAL
+* Ajout des boards files contenant la Zybo Z7-20 : MORAL
+* Creation d'un projet vivado, packaging de l'IP picorv32_axi_0 et création d'un premier bloc design : MORAL
+* Recherches sur l'IP du ZYNQ, comment connecter le picorv32 à la mémoire du processeur : MORAL
+
+Semaine 2 - Janvier 2024
+* Reunion de projet et découpe en tâche :
+	- Recherche AXI : GUICHETEAU
+	- Recherche PCPI, comment désactiver : ASSIER
 	- Recherche Systeme : MORAL 
-- Install Vivado : GUICHETEAU 
-12/01/24 - 13/01/24
-- Modification des PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY : MORAL
-- Modification des connexions entre l'axi interconnect et rst_ps7_0_50M : MORAL
-- Implémentation : MORAL
-15/01/24
-- Installation de Vivado terminée et fetch du projet : GUICHETEAU 
-16/01/24
-- Recherches sur le PCPI et documentation : ASSIER 
-- Recherche mémoire pour mettre code et tester : ASSIER - MORAL
-- Ajout d'un ILA : MORAL
-17/01/24
-- Reunion
-- Depart documentation toolchain et préparation d'un code qui utilise la mémoire : ASSIER
-- Recherches comment interfacer le processeur le processeur et ajouter du code compilé : GUICHETEAU
-- Recherches Comment on crée un espace d'adressage pour le processeur : dire qu'a l'adresse 0 c'est une bootrom,a ladresse 3M c'est autre chose... etc ? : GUICHETEAU
-18/01/24
-- MaJ du design vivado pour utiliser les ports AXI S HP pour interfacer la mémoire : MORAL
-- Creation d'un design utilisant une bootrom : MORAL
-- Ajout fichier de test mémoire pour la bootrom : ASSIER
-21/01/24
-- Ajout fihier md d'explication pour Setup une ToolChain : ASSIER
-22/01/24
-- Test implémentation fichier .coe en bootrom : ASSIER - MORAL
-23/01/24
-- Modification du .coe pour essayer d'observer des transitions sur le bus AXI : MORAL - ASSIER
-- Modification du bloc design et des ILA : Il y a bien des transactions avec la bootrom et du code s'exécute : MORAL
-24/01/24 - 25/01/24
-- Recherches pour faire fonctionner les transactions sur le BUS AXI
-- Validation du test qui permet d'interfacer avec la mémoire du PS : MORAL
-- Ajout de constantes dans le bloc design pour supprimer les warning du PCPI et de l'IRQ du picorv32 : MORAL
-29/01/24
-- Recherche interfaçage picorv32 - GPIO : GUICHETEAU
-- Implémentation interface picorv32 - GPIO : GUICHETEAU MORAL
-- Ecriture de documentation sur le fonctionnement du bloc GPIO AXI : MORAL
-30/01/24
-- Ajout fichier test .coe gpio LED : MORAL - ASSIER
-31/01/24
-- Ajout fichier test .coe bouttons swicth : ASSIER - MORAL
-06/02/24
-- Modification des addresses : MORAL
-- Augmentation de la DDR accessible : MORAL
-- Optimisation des AXI GPIO (suppression d'un, les leds et sws sont sur le même AXI GPIO désormais) : MORAL
-- Test ASM lisibles, testés et validés : MORAL
-07-08/02/24
-- Test linker et cross compilation : MORAL
-- Augmentation bram  : MORAL
-09/02/24
-- Push de la chaine de crosscompilation (pas encore validée) : MORAL
-12/02/24
-- Modif de la chaine de crosscompilation : (tout MORAL en dessous) 
-	- Ajout de crt0
-	- modif du linker
-	- ajout attribute crt0 pour mettre _start à l'addresse 0xc0000000
-	- Modif du stack pointer via la fonction _start (changer peut etre et mettre directement l'addresse dans le module verilog via Vivado ?)
-	- Validation d'une boucle while 1, a = a+1 
-- Creation de fonctions pour interagir avec le GPIO (a tester) : MORAL
-13/02/24
-- correction et test lib GPIO : ASSIER
-- Makefile pour cross compiler les tests et générer les coe elf et bin : MORAL
+* Modification des DQS_TO_CLK_DELAY : MORAL 
+* Modification des connexions entre l'axi interconnect et rst_ps7_0_50M : MORAL
+* Implementation : MORAL
+
+Semaine 3 - Janvier 2024
+* Recherches sur le PCPI et documentation : ASSIER 
+* Recherche sur comment tester du code dans le bloc design : ASSIER - MORAL
+* Recherches sur le debug; ajout d'un ILA : MORAL
+* Reunion de projet avec l'encadrant et découpe en tâche
+	- Recherche toolchain : ASSIER
+	- Recherche sur comment interfacer le processeur et ajouter du code compilé : GUICHETEAU
+	- Recherche sur comment on crée un espace d'adressage pour le processeur : GUICHETEAU
+* Documentation toolchain et préparation d'un code qui utilise la mémoire : ASSIER
+* Mise à jour du design Vivado pour utiliser le port AXI_S_HP0 pour interfacer la mémoire : MORAL
+* Création d'un design utilisant une ROM implémentée via de la BRAM : MORAL
+* Test mémoire pour la ROM : ASSIER
+* Fichier de documentation pour setup la Toolchain RV32I
+
+Semaine 4 - Janvier 2024
+* Test implémentation du fichier .coe en bootrom : ASSIER - MORAL
+* Modifications du bloc design pour observer les transactions sur le bus AXI (ajouts d'ILA) : MORAL
+* Recherches pour faire fonctionner le fichier "test" : ASSIER - MORAL
+* Validation et correction du test qui permet d'interfacer la ROM et la mémoire RAM du PS : MORAL
+* Ajout de constantes dans le bloc design pour supprimer les warnings du PCPI et de l'IRQ : MORAL
+
+Semaine 5 - Fevrier 2024
+* Réunion 
+* Recherche interfaçage picorv32 - GPIO : GUICHETEAU
+* Implémentation interface picorv32 - GPIO : GUICHETEAU MORAL
+* Ecriture de documentation sur le fonctionnement du bloc GPIO AXI : MORAL
+* Fichier test des GPIO LED en assembleur : MORAL - ASSIER
+* Fichier test des GPIO BUTTONS & SWITCH : ASSIER - MORAL
+
+Semaine 6 - Fevrier 2024
+* Reunion avec l'encadrant
+* Modification des adresses dans le bloc design : MORAL
+* Augmentation de la DDR accessible : MORAL
+* Optimisation des AXI GPIO : MORAL
+* Ajout de commentaires et creation, test et validation d'un fichier ASM : MORAL
+* Augmentation taille de la BRAM : MORAL
+* Travail sur la chaîne de cross compilation, test linker et premier push : MORAL 
+
+Semaine 7 - Fevrier 2024
+* Modification de la chaine de cross compilation : (MORAL)
+	- Ajout d'un crt0
+	- Modification du linker script
+	- Modification du linker script pour mettre le crt0 à l'addresse 0xc0000000 après avoir essayé via attribute
+	- Modification du stack pointer via la fonction _start
+	- Validation d'une boucle while 1, a = a+1 écrite en C sur la carte
+* Creation de fonctions pour interragir avec le GPIO : MORAL - ASSIER
+* Makefile pour cross compiler les tests, générer les .coe, .elf et .bin : MORAL
+* Ecriture du rapport : MORAL
+* Poster : MORAL - ASSIER
