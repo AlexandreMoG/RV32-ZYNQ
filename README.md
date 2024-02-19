@@ -57,4 +57,4 @@ Sur [ce document](./Documents/GPIO.md) est décrit le fonctionnement basique des
 
 ## Documents
 
-Si vous souhaitez observer le Rapport complet du projet, cliquez [ici](./Documents/Rapport/Projet_Zybo_Z7___Pico_RV32-12.pdf).
+Si vous souhaitez observer le Rapport complet du projet, cliquez [ici](./Documents/Rapport/Projet_RV32-ZYNQ.pdf).
