@@ -1,0 +1,93 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ROM              0xc0000000         0x00010000         axrl!w
+RAM              0x00000000         0x40000000         axw!rl
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD crt0.o
+LOAD /tmp/cc0sB6li.o
+LOAD /tmp/ccVgOTAS.o
+
+.text           0xc0000000      0x3e8
+ crt0.o()
+ .text          0xc0000000       0x1c crt0.o
+                0xc0000000                _start
+ .data          0xc000001c        0x0 crt0.o
+ .bss           0xc000001c        0x0 crt0.o
+ .comment       0xc000001c       0x1b crt0.o
+                                 0x1c (size before relaxing)
+ .riscv.attributes
+                0xc0000037       0x1c crt0.o
+                0xc0000058                        . = ALIGN (0x8)
+ *fill*         0xc0000053        0x5 
+ *(.text)
+ .text          0xc0000058       0x7c /tmp/cc0sB6li.o
+                0xc0000058                main
+ .text          0xc00000d4      0x310 /tmp/ccVgOTAS.o
+                0xc00000d4                read_register
+                0xc0000104                write_register
+                0xc0000134                config_led
+                0xc00001ac                config_switch
+                0xc0000234                config_button
+                0xc00002bc                read_switch
+                0xc000031c                read_button
+                0xc000037c                set_led
+ *(.text*)
+                0xc00003e8                        . = ALIGN (0x8)
+ *fill*         0xc00003e4        0x4 
+
+.data           0x00000000        0x0 load address 0xc00003e8
+                0x00000000                        . = ALIGN (0x8)
+                [!provide]                        PROVIDE (__global_pointer$ = .)
+ *(.data)
+ .data          0x00000000        0x0 /tmp/cc0sB6li.o
+ .data          0x00000000        0x0 /tmp/ccVgOTAS.o
+
+.rodata         0xc00003e8        0x0
+                0xc00003e8                        . = ALIGN (0x8)
+ *(.rodata)
+ *(.rodata*)
+                0xc00003e8                        . = ALIGN (0x8)
+
+.bss            0x00000000        0x0
+                [!provide]                        PROVIDE (__bss_start = .)
+ *(.bss)
+ .bss           0x00000000        0x0 /tmp/cc0sB6li.o
+ .bss           0x00000000        0x0 /tmp/ccVgOTAS.o
+ *(.bss*)
+                [!provide]                        PROVIDE (__bss_end = .)
+                [!provide]                        PROVIDE (_end = .)
+
+.stack          0x00000000   0x100000
+                0x00000000                        . = ALIGN (0x8)
+                0x00000000                        _estack = .
+                0x00100000                        . = (. + STACK_SIZE)
+ *fill*         0x00000000   0x100000 
+                0x00100000                        . = ALIGN (0x8)
+                0x00100000                        _sstack = .
+                0x00100000                        STACK_SIZE = 0x100000
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/13.2.0/libgcc.a
+START GROUP
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/libc.a
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/13.2.0/../../../../riscv32-unknown-elf/lib/libgloss.a
+END GROUP
+LOAD /opt/riscv32i/lib/gcc/riscv32-unknown-elf/13.2.0/libgcc.a
+OUTPUT(elf_files/test_switch_led.elf elf32-littleriscv)
+
+.comment        0x00000000       0x1b
+ .comment       0x00000000       0x1b /tmp/cc0sB6li.o
+                                 0x1c (size before relaxing)
+ .comment       0x0000001b       0x1c /tmp/ccVgOTAS.o
+
+.riscv.attributes
+                0x00000000       0x1c
+ .riscv.attributes
+                0x00000000       0x1c /tmp/cc0sB6li.o
+ .riscv.attributes
+                0x0000001c       0x1c /tmp/ccVgOTAS.o

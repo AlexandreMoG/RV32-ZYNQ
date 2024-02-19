@@ -25,7 +25,7 @@ Semaine 3 - Janvier 2024
 * Mise à jour du design Vivado pour utiliser le port AXI_S_HP0 pour interfacer la mémoire : MORAL
 * Création d'un design utilisant une ROM implémentée via de la BRAM : MORAL
 * Test mémoire pour la ROM : ASSIER
-* Fichier de documentation pour setup la Toolchain RV32I
+* Fichier de documentation pour setup la Toolchain RV32I : ASSIER
 
 Semaine 4 - Janvier 2024
 * Test implémentation du fichier .coe en bootrom : ASSIER - MORAL
@@ -62,3 +62,10 @@ Semaine 7 - Fevrier 2024
 * Makefile pour cross compiler les tests, générer les .coe, .elf et .bin : MORAL
 * Ecriture du rapport : MORAL
 * Poster : MORAL - ASSIER
+
+Semaine 8 - Fevrier 2024
+* Correction et mise à jour du test des switch et leds en C : MORAL
+* Validation de tout les tests : MORAL
+* Rapport : MORAL
+* Nettoyage du git : MORAL
+* Création d'un guide d'utilisation du projet : MORAL

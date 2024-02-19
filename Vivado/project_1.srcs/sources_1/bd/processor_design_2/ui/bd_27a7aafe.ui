@@ -1,0 +1,97 @@
+{
+   "ActiveEmotionalView":"Interfaces View",
+   "Default View_Layers":"/processing_system7_0_FCLK_RESET0_N:true|/processing_system7_0_FCLK_CLK0:true|/rst_ps7_0_50M_peripheral_aresetn:true|",
+   "Default View_ScaleFactor":"1.16629",
+   "Default View_TopLeft":"1260,-956",
+   "Display-PortTypeClock":"false",
+   "Display-PortTypeOthers":"false",
+   "Display-PortTypeReset":"false",
+   "ExpandedHierarchyInLayout":"",
+   "HideNet":"/processing_system7_0_FCLK_CLK0|/processing_system7_0_FCLK_RESET0_N|/rst_ps7_0_50M_peripheral_aresetn|",
+   "Interfaces View_ExpandedHierarchyInLayout":"",
+   "Interfaces View_Layers":"/processing_system7_0_FCLK_RESET0_N:false|/processing_system7_0_FCLK_CLK0:false|/rst_ps7_0_50M_peripheral_aresetn:false|",
+   "Interfaces View_Layout":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 6 -x 1570 -y -300 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 6 -x 1570 -y -280 -defaultsOSRD
+preplace port btns_4bits -pg 1 -lvl 6 -x 1570 -y 180 -defaultsOSRD
+preplace port leds_4bits -pg 1 -lvl 6 -x 1570 -y 60 -defaultsOSRD
+preplace port sws_4bits -pg 1 -lvl 6 -x 1570 -y 40 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 5 -x 1120 -y -280 -defaultsOSRD
+preplace inst picorv32_axi_0 -pg 1 -lvl 1 -x 40 -y 160 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 4 -x 780 -y -100 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 5 -x 1120 -y -100 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 3 -x 500 -y 150 -defaultsOSRD
+preplace inst ila_pico -pg 1 -lvl 2 -x 260 -y 210 -defaultsOSRD
+preplace inst axi_gpio_sws_leds -pg 1 -lvl 5 -x 1120 -y 50 -defaultsOSRD
+preplace inst axi_gpio_btns -pg 1 -lvl 5 -x 1120 -y 180 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 9 220 60n N 60n 700 -40n 1120 180n 1410 -680n 1750 -700n N -700n N -700n 2090
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 3 230 -140n N -140n 690
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 2 7 700J -50n 1130 -120n 1420 -660n N -660n N -660n N -660n 2070
+preplace netloc xlconstant_0_dout 1 3 1 1110 20n
+preplace netloc xlconstant_1_dout 1 3 1 1130 20n
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 4 1 N -110
+preplace netloc axi_bram_ctrl_0_BRAM_PORTB 1 4 1 N -90
+preplace netloc axi_gpio_btns_GPIO 1 5 1 N 180
+preplace netloc axi_gpio_btns_GPIO2 1 5 1 N 60
+preplace netloc axi_gpio_sws_leds_GPIO 1 5 1 N 40
+preplace netloc axi_mem_intercon_M00_AXI 1 3 2 640 -270 N
+preplace netloc axi_mem_intercon_M01_AXI 1 3 1 650 -100n
+preplace netloc axi_mem_intercon_M02_AXI 1 3 2 660 50 N
+preplace netloc axi_mem_intercon_M03_AXI 1 3 2 NJ 180 N
+preplace netloc picorv32_axi_0_mem_axi 1 1 2 160 150 N
+preplace netloc processing_system7_0_DDR 1 5 1 N -300
+preplace netloc processing_system7_0_FIXED_IO 1 5 1 N -280
+levelinfo -pg 1 -50 40 260 500 780 1120 1570
+pagesize -pg 1 -db -bbox -sgen -50 -740 1690 590
+",
+   "Interfaces View_ScaleFactor":"0.944348",
+   "Interfaces View_TopLeft":"389,-357",
+   "guistr":"# # String gsaved with Nlview 7.5.8 2022-09-21 7111 VDI=41 GEI=38 GUI=JA:10.0
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 7 -x 2340 -y -230 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 7 -x 2340 -y -210 -defaultsOSRD
+preplace port btns_4bits -pg 1 -lvl 7 -x 2340 -y -520 -defaultsOSRD
+preplace port leds_4bits -pg 1 -lvl 7 -x 2340 -y -660 -defaultsOSRD
+preplace port sws_4bits -pg 1 -lvl 7 -x 2340 -y -680 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -x 460 -y -40 -defaultsOSRD
+preplace inst picorv32_axi_0 -pg 1 -lvl 3 -x 1260 -y 40 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -x 460 -y -290 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 4 -x 1590 -y -120 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 5 -x 1930 -y -120 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 4 -x 1590 -y -460 -defaultsOSRD
+preplace inst ila_pico -pg 1 -lvl 4 -x 1590 -y 10 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 2 -x 1000 -y 20 -defaultsOSRD
+preplace inst xlconstant_1 -pg 1 -lvl 2 -x 1000 -y 120 -defaultsOSRD
+preplace inst ila_bootrom -pg 1 -lvl 5 -x 1930 -y -790 -defaultsOSRD
+preplace inst ila_PS -pg 1 -lvl 5 -x 1930 -y -910 -defaultsOSRD
+preplace inst axi_gpio_sws_leds -pg 1 -lvl 6 -x 2190 -y -670 -defaultsOSRD
+preplace inst axi_gpio_btns -pg 1 -lvl 6 -x 2190 -y -520 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 250 60 670 -40 1110 180 1420 -670 1790 -670 2080
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 260 -140 660
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 5 NJ -250 1120 -240 1430 -650 N -650 2070
+preplace netloc xlconstant_0_dout 1 2 1 1100 20n
+preplace netloc xlconstant_1_dout 1 2 1 1120 20n
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 4 1 N -130
+preplace netloc axi_bram_ctrl_0_BRAM_PORTB 1 4 1 N -110
+preplace netloc axi_gpio_btns_GPIO 1 6 1 N -520
+preplace netloc axi_gpio_btns_GPIO2 1 6 1 N -660
+preplace netloc axi_gpio_sws_leds_GPIO 1 6 1 N -680
+preplace netloc axi_mem_intercon_M00_AXI 1 0 5 240 -660 NJ -660 NJ -660 NJ -660 1730
+preplace netloc axi_mem_intercon_M01_AXI 1 3 2 1450 -640 1740
+preplace netloc axi_mem_intercon_M02_AXI 1 4 2 1800 -690 NJ
+preplace netloc axi_mem_intercon_M03_AXI 1 4 2 1810 -540 NJ
+preplace netloc picorv32_axi_0_mem_axi 1 3 1 1440 -580n
+preplace netloc processing_system7_0_DDR 1 1 6 NJ -80 1080 -230 N -230 N -230 N -230 N
+preplace netloc processing_system7_0_FIXED_IO 1 1 6 NJ -60 1090 -210 N -210 N -210 N -210 N
+levelinfo -pg 1 -10 460 1000 1260 1590 1930 2190 2340
+pagesize -pg 1 -db -bbox -sgen -370 -980 2460 280
+"
+}
+{
+   "da_axi4_cnt":"9",
+   "da_board_cnt":"3",
+   "da_bram_cntlr_cnt":"2",
+   "da_clkrst_cnt":"9",
+   "da_ps7_cnt":"1"
+}
